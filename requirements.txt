@@ -3,7 +3,7 @@ Django==5.2.4
 django-filter==25.1
 djangorestframework==3.16.0
 djangorestframework-gis==1.2.0
-GDAL @ file:///E:/NJERU/project/ParkingSystem/gdal-3.10.2-cp310-cp310-win_amd64.whl
+
 gunicorn==23.0.0
 packaging==25.0
 psycopg2-binary==2.9.10
