@@ -1,6 +1,4 @@
-#import os
-#os.environ['GDAL_LIBRARY_PATH'] = r'D:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\gdal310.dll'
-#GDAL_LIBRARY_PATH = r'D:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\gdal310.dll'
+
 """
 Django settings for parking_system project.
 
@@ -83,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'parking_db',          # database name from pgAdmin
         'USER': 'postgres',            # your pgAdmin username
-        'PASSWORD': 'Galuka1#',   # your pgAdmin password
+        'PASSWORD':  '18324252', #'Galuka1#',   # your pgAdmin password
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -91,9 +89,9 @@ DATABASES = {
 
 # Configure GDAL paths (update these with the paths found by the script)
 import os
-os.environ['PROJ_LIB'] = r'D:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\data\proj'
-GDAL_LIBRARY_PATH = r'D:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\gdal.dll'  # Windows example
-GEOS_LIBRARY_PATH = r'D:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\geos_c.dll'  # If using GEOS
+os.environ['PROJ_LIB'] = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\data\proj'
+GDAL_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\gdal.dll'  # Windows example
+GEOS_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\geos_c.dll'  # If using GEOS
 
 
 # Password validation

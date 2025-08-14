@@ -17,14 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-#urlpatterns = [
- #   path('admin/', admin.site.urls),
-#]
-
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from parking.views import ParkingLotViewSet, map_view, register_view, login_view, logout_view, book_slot_view, release_slot_view
+from parking.views import ParkingLotViewSet, map_view, register_view, login_view, logout_view, book_slot_view #release_slot_view
 
 router = DefaultRouter()
 router.register(r'api/parkinglots', ParkingLotViewSet)
@@ -39,8 +35,8 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('book/<int:slot_id>/', book_slot_view, name='book_slot'),
-    path('release/<int:booking_id>/', release_slot_view, name='release_slot'),
-   # path('release_slot/<int:slot_id>/', release_slot_by_slot_id_view, name='release_slot_by_slot')
+    
+   
 
    
 

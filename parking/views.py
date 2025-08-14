@@ -7,10 +7,7 @@ from .serializers import ParkingLotSerializer
 from django.middleware.csrf import get_token
 
 
-#class ParkingLotViewSet(viewsets.ReadOnlyModelViewSet):
 
-   # queryset = ParkingLot.objects.all()
- #   serializer_class = ParkingLotSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
@@ -28,8 +25,13 @@ from django.contrib.auth.decorators import login_required
 def map_view(request):
     auto_release_expired_bookings()
     current_booking = Booking.objects.filter(user=request.user).first()
+
+
+
     return render(request, 'map.html', { 
           'current_booking_id': current_booking.slot.id if current_booking else None,
+
+
           'csrf_token': get_token(request)  # To allow dynamic use in JS
     })
 
@@ -65,26 +67,21 @@ def register_view(request):
 
 def login_view(request):
     if request.method == 'POST':
-       # email = request.POST.get('email')
+       
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)  # adapt if you use custom auth
         if user is not None:
             login(request, user)
             return redirect('/map/')
-        #else:
-             #handle error
-          #  pass
-    #return render(request, 'login.html')
+       
 
 
         else:
             messages.error(request, "Invalid username or password.")
     return render(request, "login.html")
 
-#def logout_view(request):
-   # logout(request)
-   # return redirect("login")
+
 from django.contrib.auth import logout
 
 def logout_view(request):
@@ -110,18 +107,12 @@ def book_slot_view(request, slot_id):
             'error': 'Driver has already reserved a lot.',
             'slot_no': active_booking.slot.slot_no,
             'slot_id': active_booking.slot.id
-           # 'slot': active_booking.slot
+           
         })
 
     # Load slot
     slot = ParkingLot.objects.get(id=slot_id)
 
-    # Prevent double booking
-    if Booking.objects.filter(slot=slot).exists():
-        return render(request, 'booking_form.html', {
-            'error': 'This slot is already booked.',
-            'slot': slot
-        })
 
     if request.method == 'POST':
         vehicle = request.POST.get('vehicle')
@@ -142,20 +133,10 @@ def book_slot_view(request, slot_id):
 
     return render(request, 'booking_form.html', {
         'slot_no': slot.slot_no,
-        'slot_id': slot_id
+       'slot_id': slot_id
     })
 
-@login_required
-@csrf_exempt
-def release_slot_view(request, booking_id):
-    booking = Booking.objects.get(id=booking_id, user=request.user)
-    booking.slot.status = "available"
-    booking.slot.save()
-    booking.delete()
-   # except Booking.DoesNotExist:
-        # Optional: show a message or silently ignore
-      #  pass
-    return redirect('map')
+
  
 
 def auto_release_expired_bookings():

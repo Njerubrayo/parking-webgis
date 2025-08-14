@@ -107,7 +107,7 @@
         const map = L.map('map', {
             maxZoom: 22,
             zoomControl: true
-        }).setView([-1.3, 36.8], 15);
+        }).setView([-1.3, 36.8], 17);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data © OpenStreetMap contributors',
@@ -128,22 +128,7 @@
 
                     if (feature.id === currentBookingId) {
                         // This slot is booked by the current user
-                        popupHtml += `
-                            <form method="POST" action="/release/${feature.id}/">
-                                <input type="hidden" name="slot_id" value="${feature.id}">
-                                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                                <button type="submit" style="
-                                    margin-top: 8px;
-                                    background: #f44336;
-                                    color: white;
-                                    border: none;
-                                    padding: 6px 12px;
-                                    border-radius: 6px;
-                                    cursor: pointer;
-                                ">
-                                    Release Slot
-                                </button>
-                            </form>`;
+                       
                     } else if (props.status !== 'occupied') {
                         // Slot is available
                         popupHtml += `
@@ -163,9 +148,9 @@
                                     Book Slot
                                 </button>
                             </a>`;
-                    } else {
+                    } /*else {
                         popupHtml += `<span style="color: red;">Occupied</span>`;
-                    }
+                    }*/
 
                     layer.bindPopup(popupHtml);
                 },
@@ -174,7 +159,7 @@
                     const status = feature.properties.status;
 
                     return {
-                         color: isUserSlot ? '#0000FF' : '#0077ff',
+                         color: isUserSlot ? '#0000FF':  '#0077ff',
                         weight: 3,
                         opacity: 1,
                         fillOpacity: 0.6,
