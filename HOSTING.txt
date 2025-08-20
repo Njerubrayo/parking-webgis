@@ -1,0 +1,756 @@
+✅ 1. Commit your project to GitHub
+
+Railway deploys from GitHub.
+
+If you haven’t yet:
+
+git init
+git add .
+git commit -m "Initial commit"
+gh repo create parking-webgis --public --source=. --remote=origin
+git push -u origin main
+
+✅ 2. Prepare requirements.txt
+
+Ensure you’ve generated all dependencies:
+
+pip freeze > requirements.txt
+
+
+Add gunicorn (needed for production):
+
+pip install gunicorn
+
+✅ 3. Add a Procfile for Railway
+
+Create a file called Procfile in your root project folder with this:
+
+web: gunicorn ParkingSystem.wsgi:application
+
+
+(Replace ParkingSystem with your Django project folder name if different)
+
+✅ 4. Modify settings.py
+
+In settings.py:
+
+a) Add allowed hosts:
+ALLOWED_HOSTS = ['*']  # You can make it stricter after deployment
+
+b) Set static files for Railway:
+
+Add at the bottom:
+
+import os
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
+
+✅ 5. Push all changes to GitHub
+git add .
+git commit -m "Ready for deployment"
+git push
+
+✅ 6. Go to https://railway.app
+
+Sign in with GitHub
+
+Click New Project > Deploy from GitHub Repo
+
+Select your parking-webgis repo
+
+It auto-detects Django
+
+✅ 7. Set environment variables in Railway
+
+In Railway Dashboard > Variables:
+
+Key	Value
+DEBUG	False
+SECRET_KEY	(generate a secure key)
+DATABASE_URL	(Railway auto-generates this)
+
+🔁 Modify your Django settings.py to read DATABASE_URL using dj_database_url:
+
+Install first:
+
+pip install dj-database-url
+
+
+Then in settings.py:
+
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+}
+
+✅ 8. Run migrations on Railway
+
+Go to Railway Dashboard > "Deployments" tab > "Open Console" and run:
+
+python manage.py migrate
+python manage.py collectstatic
+
+✅ 9. Visit Your Live Site
+
+Railway will give you a live link like:
+
+https://your-app-name.up.railway.app
+
+
+🎉 Your WebGIS system is now live on the internet!
+
+
+✅ Step 5: Create GitHub Repo
+gh repo create parking-webgis --public --source=. --remote=origin
+
+
+parking-webgis: your GitHub repo name (change it if needed)
+
+--public: makes it public (or use --private)
+
+--source=.: uses current folder
+
+--remote=origin: links your local Git to GitHub repo
+
+✅ You will be prompted:
+
+Would you like to add a remote? → Yes
+Would you like to push commits? → Yes
+
+✅ Step 6: Push to GitHub
+
+If not already pushed by gh:
+
+git push -u origin main
+
+✅ Step 7: Confirm It’s on GitHub
+
+Go to: https://github.com/your-username/parking-webgis
+
+💡 Optional: .gitignore
+
+Before you commit, create a file named .gitignore in your project root and add:
+
+*.pyc
+__pycache__/
+env/
+db.sqlite3
+*.sqlite3
+*.log
+.DS_Store
+node_modules/
+
+
+This avoids pushing unnecessary files (like your virtual environment).
+
+//CREATING MAIN
+✅ Fix it by following these exact steps:
+🔁 1. Create the main branch (locally):
+git branch -M main
+
+
+This renames your current branch (probably master) to main, which is what GitHub expects.
+
+
+🛠️ Step 1: Clean Up Your Repo (Optional but Recommended)
+
+Run this in terminal:
+
+echo env/ > .gitignore
+git rm -r --cached env
+git commit -m "Remove virtual environment from repo"
+git push
+
+
+This removes the virtual environment from GitHub (not from your PC) and prevents future large file issues.
+
+📄 Step 2: Create Required Files
+✅ requirements.txt
+
+Run this to generate it:
+
+pip freeze > requirements.txt
+
+✅ Procfile
+
+Create a file called Procfile (no file extension). Inside, paste:
+
+web: gunicorn parking_system.wsgi
+
+
+Replace parking_system with your actual project folder name (the one with settings.py).
+
+✅ runtime.txt (optional)
+
+To tell Railway your Python version:
+
+python-3.10.0
+
+
+🛰️ Step 3: Deploy on Railway
+
+Visit https://railway.app
+
+Click "Start a New Project" → "Deploy from GitHub Repo"
+
+Connect your GitHub and select parking-webgis
+
+Set environment variables:
+
+DEBUG=false
+
+SECRET_KEY=your-secret-key
+
+ALLOWED_HOSTS=.railway.app,127.0.0.1,localhost
+
+DATABASE_URL (will be auto-set if you add PostgreSQL)
+
+💽 Step 4: Add PostgreSQL
+
+In Railway dashboard, go to “Plugins” → “Add Plugin” → “PostgreSQL”
+
+It will generate a DATABASE_URL. Add it to your environment.
+
+⚙️ Step 5: Migrate and Collect Static
+
+In the Railway web terminal:
+
+python manage.py migrate
+python manage.py collectstatic
+
+✅ You're Live!
+
+After deployment completes, Railway will give you a live URL like:
+
+https://parking-webgis.up.railway.app
+
+
+Use that for your presentation!
+
+
+
+✅ Here's what to do:
+🔁 1. Add it to .gitignore
+
+Open or create a .gitignore file in the root of your project and add:
+
+env/
+env310/
+
+🧹 2. Remove from Git tracking (but keep it locally!)
+
+Run these commands:
+
+git rm -r --cached env310
+git commit -m "Removed env310 from version control"
+git push
+
+
+
+
+🚀 Step-by-Step: Hosting on Railway
+✅ 1. Prepare your project for deployment
+
+Make sure your Django project has:
+
+a) requirements.txt
+
+Run this:
+
+pip freeze > requirements.txt
+
+b) Procfile
+
+Create a file named Procfile (no extension) in your project root:
+
+web: gunicorn ParkingSystem.wsgi --log-file -
+
+
+Replace ParkingSystem with the name of your Django project folder (where settings.py is).
+
+c) runtime.txt (optional but recommended)
+
+Create a runtime.txt with the Python version:
+
+python-3.10.0
+
+d) Update settings.py
+
+Inside ParkingSystem/settings.py:
+
+import os
+
+ALLOWED_HOSTS = ['*']  # Temporarily for Railway
+
+# Add this at the bottom
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+✅ 2. Push changes
+
+Commit the new files:
+
+git add .
+git commit -m "Prepare for Railway deployment"
+git push
+
+🛤️ 3. Deploy on Railway
+a) Go to https://railway.app
+
+Log in with your GitHub
+
+b) Click “New Project” → “Deploy from GitHub Repo”
+c) Select your parking-webgis repo
+d) Railway will auto-detect it’s a Python project and build it
+⚙️ 4. Configure Environment Variables
+
+After build begins, go to the “Variables” tab in Railway and add:
+
+Key	Value
+SECRET_KEY	Your Django secret key
+DEBUG	False
+ALLOWED_HOSTS	* or your Railway app domain
+DATABASE_URL	(Railway auto-provides this if using PostgreSQL)
+
+✅ If you're using PostGIS, make sure Railway's PostgreSQL plugin is attached.
+
+✅ 5. Run Migrations and Collect Static Files
+
+Open the Railway “Deploy” terminal and run:
+
+python manage.py migrate
+python manage.py collectstatic --noinput
+
+
+Once done, your app will be live! 🚀
+You can share the Railway domain with your audience.
+
+
+
+
+✅ Here’s how to do it step-by-step:
+1. In VS Code, inside your project root (D:\NJERU\project\ParkingSystem):
+
+Right-click in the Explorer panel
+
+Click "New File"
+
+Name the file exactly:
+
+Procfile
+``>
+(**no extension**, no `.txt`, just `Procfile`)
+
+#### 2. Inside that file, **paste this line**:
+
+
+web: gunicorn parking_system.wsgi
+
+
+> Make sure `parking_system` matches your actual Django project folder (i.e., where your `settings.py` and `wsgi.py` are).
+
+---
+
+#### 3. After that, save the file, then run:
+```bash
+git add Procfile
+git commit -m "Add Procfile for Railway deployment"
+git push
+
+
+Railway will now know how to start your app when it deploys.
+
+
+
+
+
+
+
+1️⃣ Stage the .gitignore and all other changes
+git add .gitignore
+git add -A
+
+2️⃣ Commit the cleanup
+git commit -m "Clean repo: removed cached pyc files, updated .gitignore"
+
+3️⃣ Pull latest from GitHub (rebasing to avoid conflicts)
+git pull --rebase origin main
+
+4️⃣ Push to GitHub
+git push origin main
+
+
+Once this is done, your repo will be in sync, clean, and ready for Railway hosting setup.
+
+
+
+
+Git is complaining because you haven’t set your username and email yet on this new desktop.
+You can fix it like this:
+
+1️⃣ Set your Git identity globally (recommended so it works for all repos)
+git config --global user.name "Brian Njeru"
+git config --global user.email "your-email@example.com"
+
+
+⚠️ Replace "your-email@example.com" with the email linked to your GitHub account.
+
+2️⃣ Verify
+git config --global --list
+
+
+You should see something like:
+
+user.name=Brian Njeru
+user.email=your-email@example.com
+
+
+
+
+Step 1 — Open the right folder
+
+Make sure you have VS Code open and your project folder (ParkingSystem) loaded.
+
+You should see your files like manage.py, parking_system/, parking/, etc.
+
+Step 2 — Create the Procfile
+
+In the Explorer panel (left side in VS Code), right-click the project’s root folder (the same folder where manage.py is).
+
+Select "New File".
+
+Name it exactly:
+
+Procfile
+
+
+No file extension (not .txt, not .py).
+
+The P is uppercase.
+
+Press Enter to create the file.
+
+Step 3 — Add the command
+
+Open the newly created Procfile.
+
+Inside it, type:
+
+web: gunicorn parking_system.wsgi
+
+
+(Replace parking_system with the name of your main Django project folder if it’s different.)
+
+Step 4 — Save the file
+
+Press Ctrl + S (Windows) to save.
+
+Step 5 — Commit and push to GitHub
+
+In your terminal (still in env310):
+
+git add Procfile
+git commit -m "Add Procfile for Railway deployment"
+git push origin main
+
+
+
+
+
+1) Update your GitHub repo with local changes
+
+In your project root (same folder as manage.py), with your venv activated:
+
+git status
+git remote -v                # make sure 'origin' points to your GitHub repo
+git pull --rebase origin main  # get anything that’s on GitHub
+
+
+Add a solid .gitignore (so venv, DB dumps, etc. don’t get committed). Create/update .gitignore:
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.env.*
+*.log
+
+# Django
+staticfiles/
+media/
+db.sqlite3
+
+# VSCode / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Virtualenvs
+env/
+env*/ 
+venv/
+venv*/
+
+# Node (if any)
+node_modules/
+
+
+Now commit and push:
+
+git add -A
+git commit -m "Update: fixes + deploy config (Docker, settings, requirements)"
+git push origin main
+
+2) Prepare the project for Railway (GeoDjango-friendly)
+
+Because GeoDjango needs GEOS/GDAL/PROJ at runtime, the most reliable path on Railway is to deploy with a Dockerfile.
+
+A) Create/Update requirements.txt
+
+Add (or ensure) at least these:
+
+Django==5.2.4
+djangorestframework
+djangorestframework-gis
+psycopg2-binary
+gunicorn
+whitenoise
+dj-database-url
+
+
+Keep psycopg2-binary (not psycopg2) for easier deploys.
+
+B) Add Dockerfile (in project root)
+# Use Python 3.10 to match your dev env
+FROM python:3.10-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# System deps for GeoDjango & PostgreSQL
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    gdal-bin \
+    libgdal-dev \
+    libgeos-dev \
+    libproj-dev \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
+
+# (Optional) helpful includes for some GDAL installations
+ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
+ENV C_INCLUDE_PATH=/usr/include/gdal
+
+WORKDIR /app
+
+# Install Python deps first (better layer caching)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy project
+COPY . .
+
+# Entrypoint runs migrations, collectstatic, then starts gunicorn
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+CMD ["/entrypoint.sh"]
+
+C) Add entrypoint.sh (project root)
+#!/bin/sh
+set -e
+
+python manage.py migrate --noinput
+python manage.py collectstatic --noinput
+
+# Bind to $PORT for Railway
+exec gunicorn parking_system.wsgi:application --bind 0.0.0.0:$PORT
+
+
+Make sure it has LF line endings and is executable (Docker step handles chmod).
+
+D) Update settings.py for prod
+
+Remove hard-coded Windows GDAL paths for Linux deploy, or gate them so they only apply on Windows:
+
+import os
+from pathlib import Path
+import dj_database_url
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+DEBUG = os.getenv("DEBUG", "False") == "True"
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key")  # replace in prod
+ALLOWED_HOSTS = ["*"]  # or set to your Railway domain later
+
+# Only set these on Windows dev machines
+if os.name == "nt":
+    os.environ["PROJ_LIB"] = r"E:\Njeru\project\ParkingSystem\env310\Lib\site-packages\osgeo\data\proj"
+    GDAL_LIBRARY_PATH = r"E:\Njeru\project\ParkingSystem\env310\Lib\site-packages\osgeo\gdal.dll"
+    GEOS_LIBRARY_PATH = r"E:\Njeru\project\ParkingSystem\env310\Lib\site-packages\osgeo\geos_c.dll"
+
+# Database: pull from DATABASE_URL (Railway)
+DATABASES = {
+    "default": dj_database_url.config(
+        default=os.getenv("DATABASE_URL", "postgres:///parking_db"),
+        conn_max_age=600,
+    )
+}
+
+# Static files (for Whitenoise)
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.gis",     # GeoDjango
+    "rest_framework",
+    "rest_framework_gis",
+    "parking",
+]
+
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # <— add this
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+# Allow CSRF from your Railway domain (update after first deploy)
+CSRF_TRUSTED_ORIGINS = [
+    os.getenv("CSRF_TRUSTED_ORIGIN", "http://localhost:8000")
+]
+
+
+After your first Railway deploy you’ll know the real domain; set CSRF_TRUSTED_ORIGINS to https://your-app.up.railway.app.
+
+3) Commit the new deploy files
+git add Dockerfile entrypoint.sh requirements.txt .gitignore parking_system/settings.py
+git commit -m "Add Dockerfile + entrypoint + production settings for Railway"
+git push origin main
+
+4) Deploy to Railway (UI steps)
+
+Go to Railway → New Project → Deploy from GitHub Repo → choose your repo.
+
+Railway will detect the Dockerfile and build it.
+
+When the service appears:
+
+Go to Variables and add:
+
+SECRET_KEY → some long random string.
+
+DEBUG → False
+
+(You’ll add DATABASE_URL after creating the DB in the next step.)
+
+Add a PostgreSQL database in Railway: New → Database → PostgreSQL.
+
+Open the DB → copy the Postgres connection string/URL.
+
+Create the PostGIS extension once:
+
+Use the Railway DB “Connect” button or any client and run:
+
+CREATE EXTENSION IF NOT EXISTS postgis;
+
+
+Back on your Web service → Variables:
+
+Add DATABASE_URL with the value you copied from the DB.
+
+(Optional) After the first deploy gives you a domain, add:
+
+CSRF_TRUSTED_ORIGIN → https://<your-app>.up.railway.app
+
+Redeploy (Railway will rebuild/restart).
+
+The logs should show migrate, collectstatic, and finally gunicorn starting.
+
+5) Move your existing data to the Railway DB (optional but likely needed)
+
+From your local machine (with pg_dump installed):
+
+# Dump your local Postgres DB
+pg_dump -Fc -h localhost -U postgres -d parking_db -f parking.dump
+
+
+Restore into Railway (replace placeholders from the DB connection info):
+
+pg_restore --no-owner --no-privileges \
+  -h <railway-host> -p <railway-port> \
+  -U <railway-user> -d <railway-dbname> \
+  parking.dump
+
+
+If you get permission issues on PostGIS types, ensure CREATE EXTENSION postgis; was run first.
+
+6) Smoke test
+
+Open https://<your-app>.up.railway.app/map/
+
+Check https://<your-app>.up.railway.app/api/parkinglots/ returns a GeoJSON FeatureCollection.
+
+Try logging in, booking, releasing.
+
+If you see a CSRF error, set CSRF_TRUSTED_ORIGIN exactly to your Railway URL and redeploy.
+
+Common gotchas (quick fixes)
+
+Admin “view lot” page blank: often a GDAL/GEOS failure. With the Dockerfile, the libs are present.
+
+Static files not loading: ensure whitenoise.middleware.WhiteNoiseMiddleware is added and collectstatic runs (entrypoint handles it).
+
+CORS/CSRF issues: set CSRF_TRUSTED_ORIGIN to the exact https://...railway.app domain.
+
+Wrong DB URL: double-check DATABASE_URL value format from Railway.
+
+
+
+1️⃣ Activate your virtual environment
+
+Make sure you’re inside your project folder and env310 is activated:
+
+E:\NJERU\project\ParkingSystem> env310\Scripts\activate
+
+
+(You’ll see (env310) in the terminal if it’s activated.)
+
+2️⃣ Freeze your dependencies into requirements.txt
+
+Run:
+
+pip freeze > requirements.txt
+
+
+This will create (or overwrite) a requirements.txt file in your project root with all packages and versions currently installed in env310.
+
+3️⃣ Check the file
+
+Open requirements.txt in VS Code to make sure it’s not empty and that it contains packages like Django, psycopg2, gunicorn, etc.
+
+If gunicorn is missing, add it:
+
+pip install gunicorn
+pip freeze > requirements.txt
+
+4️⃣ Commit & Push to GitHub
+git add requirements.txt
+git commit -m "Add requirements.txt for Railway deployment"
+git push origin main
+
+

@@ -13,6 +13,17 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+
+from environ import Env
+
+env = Env()
+Env.read_env()
+
+# Get environment type (default = production)
+ENVIRONMENT = env("ENVIRONMENT", default="production")
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,9 +32,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#v+^@d4r)rzutjy6hi_cy_$rzk45%p%-*o(i9t5-2-h_(5$$(d'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+# Toggle debug based on environment
+if ENVIRONMENT == "development":
+    DEBUG = True
+else:
+    DEBUG = False
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -45,6 +63,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,16 +95,36 @@ WSGI_APPLICATION = 'parking_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+#        'NAME': 'parking_db',          # database name from pgAdmin
+#        'USER': 'postgres',            # your pgAdmin username
+#        'PASSWORD':  '18324252', #'Galuka1#',   # your pgAdmin password
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+#}
+
+
+# Default local PostGIS
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'parking_db',          # database name from pgAdmin
-        'USER': 'postgres',            # your pgAdmin username
-        'PASSWORD':  '18324252', #'Galuka1#',   # your pgAdmin password
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': env('DB_NAME', default='parking_db'),
+        'USER': env('DB_USER', default='postgres'),
+        'PASSWORD': env('DB_PASSWORD', default='18324252'),
+        'HOST': env('DB_HOST', default='localhost'),
+        'PORT': env('DB_PORT', default='5432'),
     }
 }
+
+POSTGRES_LOCALLY = env.bool('POSTGRES_LOCALLY', default=False)
+
+# Use Railway PostgreSQL if in production OR testing PostgreSQL locally
+if ENVIRONMENT == 'production' or POSTGRES_LOCALLY:
+    DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'), conn_max_age=600, ssl_require=False)
+
 
 # Configure GDAL paths (update these with the paths found by the script)
 import os
@@ -129,6 +168,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Enable WhiteNoise compression and caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
