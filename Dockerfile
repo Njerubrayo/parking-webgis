@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Fix GDAL library path (symlink to versioned .so)
-RUN ln -s /usr/lib/x86_64-linux-gnu/libgdal.so.* /usr/lib/x86_64-linux-gnu/libgdal.so
+RUN find /usr/lib/x86_64-linux-gnu/ -name "libgdal.so.*" -exec ln -sf {} /usr/lib/x86_64-linux-gnu/libgdal.so \; -quit
 
 
 
