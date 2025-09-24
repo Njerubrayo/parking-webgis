@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Fix GDAL library path (symlink to versioned .so)
-RUN ln -s /usr/lib/libgdal.so.* /usr/lib/libgdal.so
+RUN ln -s /usr/lib/x86_64-linux-gnu/libgdal.so.* /usr/lib/libgdal.so
 
 
 # Set GDAL include paths (helps pip find headers)
