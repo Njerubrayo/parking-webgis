@@ -10,9 +10,11 @@ ENV PYTHONUNBUFFERED=1
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     gcc \
+    g++ \
     gdal-bin \
     libgdal-dev \
     && rm -rf /var/lib/apt/lists/*
+
 
 # Set GDAL include paths (helps pip find headers)
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
