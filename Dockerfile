@@ -15,11 +15,16 @@ RUN apt-get update && apt-get install -y \
     libgdal-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Fix GDAL library path (symlink to versioned .so)
-RUN GDAL_SO=$(find /usr/lib/x86_64-linux-gnu/ -name "libgdal.so.*" | head -n1) && \
-    if [ -n "$GDAL_SO" ]; then \
-        ln -sf "$GDAL_SO" /usr/lib/x86_64-linux-gnu/libgdal.so; \
-    fi
+# Install system dependencies: Postgres, GDAL, build tools
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    gcc \
+    g++ \
+    gdal-bin \
+    libgdal-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN ln -s /usr/lib/x86_64-linux-gnu/libgdal.so.30 /usr/lib/x86_64-linux-gnu/libgdal.so
 
 
 

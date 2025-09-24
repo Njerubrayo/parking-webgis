@@ -21,30 +21,50 @@ env = Env()
 Env.read_env()
 
 # Get environment type (default = production)
-ENVIRONMENT = env("ENVIRONMENT", default="production")
+#ENVIRONMENT = env("ENVIRONMENT", default="production")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# Daraja sandbox settings
+#DARAJA_ENV = env('DARAJA_ENV', default='sandbox')
+#DARAJA_CONSUMER_KEY = env('DARAJA_CONSUMER_KEY')
+#DARAJA_CONSUMER_SECRET = env('DARAJA_CONSUMER_SECRET')
+#DARAJA_SHORTCODE = env('DARAJA_SHORTCODE', default='174379')
+#DARAJA_PASSKEY = env('DARAJA_PASSKEY')
+#DARAJA_CALLBACK_HOST = env('DARAJA_CALLBACK_HOST', default='http://127.0.0.1:9000')
+#RATE_PER_MINUTE_KES = env.float('RATE_PER_MINUTE_KES', default=5)
+
+# Sandbox endpoints
+#DARAJA_BASE = 'https://sandbox.safaricom.co.ke'
+#DARAJA_OAUTH_URL = f'{DARAJA_BASE}/oauth/v1/generate?grant_type=client_credentials'
+#DARAJA_STK_URL = f'{DARAJA_BASE}/mpesa/stkpush/v1/processrequest'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
+ 
+#SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-#v+^@d4r)rzutjy6hi_cy_$rzk45%p%-*o(i9t5-2-h_(5$$(d'
+#SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # Toggle debug based on environment
-if ENVIRONMENT == "development":
-    DEBUG = True
-else:
-    DEBUG = False
+#if ENVIRONMENT == "development":
+  #  DEBUG = True
+#else:
+    #DEBUG = False
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.fly.dev', 'localhost', '127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = ['https://parkingsystem.fly.dev']
+
 
 
 INSTALLED_APPS = [
@@ -70,6 +90,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'parking_system.middleware.NoCacheForAuthMiddleware',
 ]
 
 ROOT_URLCONF = 'parking_system.urls'
@@ -119,20 +140,29 @@ DATABASES = {
     }
 }
 
-POSTGRES_LOCALLY = env.bool('POSTGRES_LOCALLY', default=False)
+#POSTGRES_LOCALLY = env.bool('POSTGRES_LOCALLY', default=False)
 
 # Use Railway PostgreSQL if in production OR testing PostgreSQL locally
-if ENVIRONMENT == 'production' or POSTGRES_LOCALLY:
-    DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'), conn_max_age=600, ssl_require=False)
+#if ENVIRONMENT == 'production' or POSTGRES_LOCALLY:
+   # DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'), conn_max_age=600, ssl_require=False)
 
 
 # Configure GDAL paths (update these with the paths found by the script)
 import os
-os.environ['PROJ_LIB'] = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\data\proj'
-GDAL_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\gdal.dll'  # Windows example
-GEOS_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\geos_c.dll'  # If using GEOS
+import platform
+#s.environ['PROJ_LIB'] = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\data\proj'
+#GDAL_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\gdal.dll'  # Windows example
+#GEOS_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\geos_c.dll'  # If using GEOS
 
-
+# Configure GDAL/GEOS paths differently for Windows vs Linux
+if platform.system() == "Windows":
+    os.environ['PROJ_LIB'] = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\data\proj'
+    GDAL_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\gdal.dll'
+    GEOS_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\geos_c.dll'
+else:
+    os.environ['PROJ_LIB'] = '/usr/share/proj'
+    GDAL_LIBRARY_PATH = '/usr/lib/x86_64-linux-gnu/libgdal.so.30'
+    GEOS_LIBRARY_PATH = '/usr/lib/x86_64-linux-gnu/libgeos_c.so'
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
@@ -169,7 +199,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
+# Extra places Django will look for static files
+STATICFILES_DIRS = [
+    BASE_DIR / 'parking' / 'static',
+]
 # Enable WhiteNoise compression and caching
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
