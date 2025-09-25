@@ -22,8 +22,8 @@ RUN apt-get update && apt-get install -y \
     g++ \
     gdal-bin \
     libgdal-dev \
-    libgdal30 \
     && rm -rf /var/lib/apt/lists/*
+
 
 
 RUN ln -sf /usr/lib/x86_64-linux-gnu/libgdal.so.30 /usr/lib/x86_64-linux-gnu/libgdal.so
