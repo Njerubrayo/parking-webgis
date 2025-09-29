@@ -22,11 +22,10 @@ RUN apt-get update && apt-get install -y \
     g++ \
     gdal-bin \
     libgdal-dev \
+    python3-gdal \
     && rm -rf /var/lib/apt/lists/*
 
-
-
-RUN ln -sf /usr/lib/x86_64-linux-gnu/libgdal.so.30 /usr/lib/x86_64-linux-gnu/libgdal.so
+    
 
 # Set GDAL include paths (helps pip find headers)
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
