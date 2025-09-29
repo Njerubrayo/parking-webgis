@@ -6,14 +6,6 @@ FROM python:${PYTHON_VERSION}
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Install system dependencies: Postgres, GDAL, build tools
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    gcc \
-    g++ \
-    gdal-bin \
-    libgdal-dev \
-    && rm -rf /var/lib/apt/lists/*
 
 # Install system dependencies: Postgres, GDAL, build tools
 RUN apt-get update && apt-get install -y \
@@ -25,7 +17,7 @@ RUN apt-get update && apt-get install -y \
     python3-gdal \
     && rm -rf /var/lib/apt/lists/*
 
-    
+
 
 # Set GDAL include paths (helps pip find headers)
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
@@ -44,8 +36,6 @@ RUN pip install --upgrade pip \
 # Copy project code
 COPY . /code
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
 
 # Expose port
 EXPOSE 8000

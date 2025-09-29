@@ -1,0 +1,28 @@
+# fly.toml app configuration file generated for parkingsystem on 2025-09-24T14:39:19+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "parkingsystem"
+primary_region = "jnb"
+console_command = "/code/manage.py shell"
+
+[build]
+
+[deploy]
+  release_command = "python manage.py migrate --noinput"
+
+[env]
+  PORT = "8000"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = true          # ✅ use boolean, not string
+  auto_start_machines = true
+  min_machines_running = 1           # ✅ keep at least 1 running for availability
+  processes = ["app"]
+
+[[vm]]
+  size = "shared-cpu-1x"
+
