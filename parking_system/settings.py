@@ -14,7 +14,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-
+import platform
 from environ import Env
 
 env = Env()
@@ -46,26 +46,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
  
-#SECRET_KEY = env('SECRET_KEY')
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#v+^@d4r)rzutjy6hi_cy_$rzk45%p%-*o(i9t5-2-h_(5$$(d'
-#SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
+# SECURITY WARNING: keep the secret key used in production secret!
+#SECRET_KEY = 'django-insecure-#v+^@d4r)rzutjy6hi_cy_$rzk45%p%-*o(i9t5-2-h_(5$$(d'
+# ————— Security & debug —————
+# Use environment variables in production; keep dev defaults local.
+SECRET_KEY = env("DJANGO_SECRET_KEY", default="django-insecure-#v+^@d4r)rzutjy6hi_cy_$rzk45%p%-*o(i9t5-2-h_(5$$(d")
+DEBUG = env.bool("DEBUG", default=False)  # set to False on Fly; True locally
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# Toggle debug based on environment
-#if ENVIRONMENT == "development":
-  #  DEBUG = True
-#else:
-    #DEBUG = False
 
-DEBUG = True
 
-ALLOWED_HOSTS = ['.fly.dev', 'localhost', '127.0.0.1']
+#DEBUG = True
+
+ALLOWED_HOSTS = ['.fly.dev', 'localhost', '127.0.0.1', # add your exact Fly app host for clarity
+    "parkingsystem.fly.dev",]
 
 CSRF_TRUSTED_ORIGINS = ['https://parkingsystem.fly.dev']
 
-
+# Make Django respect Fly's HTTPS proxy headers
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -116,40 +116,35 @@ WSGI_APPLICATION = 'parking_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-#        'NAME': 'parking_db',          # database name from pgAdmin
-#        'USER': 'postgres',            # your pgAdmin username
-#        'PASSWORD':  '18324252', #'Galuka1#',   # your pgAdmin password
-#        'HOST': 'localhost',
-#        'PORT': '5432',
-#    }
-#}
 
 
-# Default local PostGIS
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': env('DB_NAME', default='parking_db'),
-        'USER': env('DB_USER', default='postgres'),
-        'PASSWORD': env('DB_PASSWORD', default='18324252'),
-        'HOST': env('DB_HOST', default='localhost'),
-        'PORT': env('DB_PORT', default='5432'),
+# If Fly injects DATABASE_URL, use it; otherwise fall back to local env vars.
+if os.environ.get("DATABASE_URL"):
+    _cfg = dj_database_url.parse(
+        os.environ["DATABASE_URL"],
+        conn_max_age=600,
+        ssl_require=True,
+    )
+    # Ensure GeoDjango uses PostGIS backend even when parsed from URL
+    _cfg["ENGINE"] = "django.contrib.gis.db.backends.postgis"
+    DATABASES = {"default": _cfg}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.contrib.gis.db.backends.postgis",
+            "NAME": env("DB_NAME", default="parking_db"),
+            "USER": env("DB_USER", default="postgres"),
+            "PASSWORD": env("DB_PASSWORD", default="18324252"),
+            "HOST": env("DB_HOST", default="localhost"),
+            "PORT": env("DB_PORT", default="5432"),
+        }
     }
-}
 
-#POSTGRES_LOCALLY = env.bool('POSTGRES_LOCALLY', default=False)
-
-# Use Railway PostgreSQL if in production OR testing PostgreSQL locally
-#if ENVIRONMENT == 'production' or POSTGRES_LOCALLY:
-   # DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'), conn_max_age=600, ssl_require=False)
 
 
 # Configure GDAL paths (update these with the paths found by the script)
-import os
-import platform
+#import os
+#import platform
 #s.environ['PROJ_LIB'] = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\data\proj'
 #GDAL_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\gdal.dll'  # Windows example
 #GEOS_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\geos_c.dll'  # If using GEOS

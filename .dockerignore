@@ -1,0 +1,29 @@
+fly.toml
+*.sqlite3
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+env310/
+venv/
+.venv/
+
+# Ignore version control
+.git/
+.gitignore
+
+# Ignore IDE/editor configs
+.vscode/
+.idea/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore media/uploads if not needed in build
+media/
+*.log

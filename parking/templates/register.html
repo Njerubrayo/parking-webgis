@@ -27,6 +27,8 @@
         );
         overflow-x: hidden;
       }
+
+      /* Left Section */
       .left-section {
         flex: 1.2;
         background: linear-gradient(
@@ -39,49 +41,60 @@
         color: white;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         padding: 2rem;
         min-height: 100vh;
         position: relative;
+        justify-content: flex-start;
       }
-      .left-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: -50px;
-        width: 100px;
-        height: 100%;
-        background: linear-gradient(135deg, #4caf50 0%, #ffc107 100%);
-        transform: skewX(-15deg);
-        z-index: 1;
+
+      .header-title {
+        width: 100%;
+        padding: 0;
+        margin: 0;
       }
-      .main-title {
-        font-size: 2.8rem;
+
+      .header-title h1 {
+        font-size: 2.5rem;
         font-weight: bold;
         color: white;
-        margin-bottom: 2rem;
-        text-align: center;
-        position: relative;
-        z-index: 2;
+        margin-bottom: 0.5rem;
       }
+
+      .title-divider {
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
+        height: 2px;
+        background-color: white;
+      }
+
       .content-box {
         background: white;
-        padding: 2.5rem;
-        border-radius: 10px;
+        padding: 2rem;
+        border-radius: 8px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        max-width: 450px;
+        max-width: 400px;
         width: 100%;
         position: relative;
+        transform: skewX(-10deg);
+        margin-top: 2rem;
         z-index: 2;
-        transform: perspective(600px) rotateY(-5deg);
+        min-height: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
+
       .content-box p {
-        font-size: 1rem;
-        line-height: 1.6;
+        font-size: 1.1rem;
+        line-height: 1.8;
         color: #555;
         text-align: justify;
+        transform: skewX(10deg);
+        margin: 0;
       }
+
+      /* Right Section */
       .right-section {
         flex: 1;
         background: linear-gradient(135deg, #ffc107 0%, #ffd54f 100%);
@@ -92,6 +105,7 @@
         min-height: 100vh;
         position: relative;
       }
+
       .form-box {
         background: white;
         padding: 2rem 2.5rem;
@@ -101,6 +115,7 @@
         max-width: 380px;
         border: 1px solid rgba(76, 175, 80, 0.1);
       }
+
       .form-title {
         text-align: center;
         margin-bottom: 1.5rem;
@@ -108,6 +123,7 @@
         font-size: 1.4rem;
         font-weight: bold;
       }
+
       label {
         display: block;
         margin-top: 1rem;
@@ -115,6 +131,7 @@
         color: #333;
         font-weight: 500;
       }
+
       input[type="text"],
       input[type="email"],
       input[type="password"] {
@@ -126,6 +143,7 @@
         font-size: 1rem;
         transition: border-color 0.3s ease;
       }
+
       input[type="text"]:focus,
       input[type="email"]:focus,
       input[type="password"]:focus {
@@ -133,18 +151,22 @@
         border-color: #4caf50;
         box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
       }
+
       .password-requirements {
         font-size: 0.8rem;
         color: #666;
         margin-bottom: 1rem;
       }
+
       .password-requirements ul {
         padding-left: 1rem;
         margin-top: 0.5rem;
       }
+
       .password-requirements li {
         margin-bottom: 0.25rem;
       }
+
       button {
         width: 100%;
         background: linear-gradient(135deg, #4caf50, #45a049);
@@ -158,29 +180,91 @@
         cursor: pointer;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
+
       button:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
       }
+
       button:active {
         transform: translateY(0);
       }
+
       .bottom-text {
         text-align: center;
         margin-top: 1.5rem;
         color: #666;
         font-size: 0.9rem;
       }
+
       .bottom-text a {
         color: #4caf50;
         text-decoration: none;
         font-weight: bold;
         transition: color 0.3s ease;
       }
+
       .bottom-text a:hover {
         color: #45a049;
         text-decoration: underline;
       }
+
+      /* --- ANIMATIONS --- */
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes slideDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-15px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes growLine {
+        0% {
+          transform: scaleX(0);
+          opacity: 0;
+        }
+        100% {
+          transform: scaleX(1);
+          opacity: 1;
+        }
+      }
+      .form-box {
+        animation: fadeUp 0.6s ease-out forwards;
+      }
+      .header-title h1 {
+        animation: slideDown 0.5s ease-out forwards;
+      }
+      .title-divider {
+        transform-origin: center;
+        animation: growLine 0.6s ease-out 0.4s forwards;
+      }
+      @keyframes slideInBox {
+        0% {
+          opacity: 0;
+          transform: translateX(-40px) skewX(-10deg);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0) skewX(-10deg);
+        }
+      }
+      .content-box {
+        animation: slideInBox 0.8s ease-out 0.3s forwards;
+      }
+
+      /* --- RESPONSIVE --- */
       @media (max-width: 768px) {
         body {
           flex-direction: column;
@@ -199,22 +283,40 @@
           min-height: 50vh;
           padding: 1.5rem;
         }
-        .left-section::before {
-          display: none;
-        }
         .content-box {
           transform: none;
-          padding: 2rem;
+          padding: 1.5rem;
+          min-height: auto;
+          margin: 1.5rem auto; /* Center horizontally */
         }
-        .content-box h1 {
-          font-size: 1.8rem;
+        .header-title h1 {
+          font-size: 2rem;
+        }
+        .form-box {
+          padding: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .left-section,
+        .right-section {
+          min-height: auto; /* Reduce tall sections on very small screens */
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+          padding: 1rem; /* Larger tap targets */
+          font-size: 1rem;
         }
       }
     </style>
   </head>
   <body>
     <div class="left-section">
-      <h1 class="main-title">ParkPoa</h1>
+      <div class="header-title">
+        <h1>ParkPoa</h1>
+        <div class="title-divider"></div>
+      </div>
       <div class="content-box">
         <p>
           ParkPoa simplifies parking in Nairobi's Upper Hill area by eliminating
@@ -224,42 +326,63 @@
         </p>
       </div>
     </div>
+
     <div class="right-section">
       <div class="form-box">
         <h2 class="form-title">Create an Account</h2>
         <form method="POST">
-          {% csrf_token %}
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-          <small style="color: #666"
-            >Required. 150 characters or fewer. Letters, digits and @/./+/-/_
-            only.</small
+          {% csrf_token %} {% if error %}
+          <div
+            style="
+              color: red;
+              font-weight: bold;
+              margin-bottom: 1rem;
+              text-align: center;
+            "
           >
+            {{ error }}
+          </div>
+          {% endif %}
+
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            placeholder="Enter username"
+          />
 
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Enter email"
+          />
 
           <label for="password1">Password:</label>
-          <input type="password" id="password1" name="password1" required />
-
-          <div class="password-requirements">
-            Your password requirements:
-            <ul>
-              <li>Can't be too similar to your other personal information</li>
-              <li>Must contain at least 8 characters</li>
-              <li>Can't be a commonly used password</li>
-              <li>Can't be entirely numeric</li>
-            </ul>
-          </div>
+          <input
+            type="password"
+            id="password1"
+            name="password1"
+            required
+            placeholder="Enter password"
+          />
 
           <label for="password2">Password confirmation:</label>
-          <input type="password" id="password2" name="password2" required />
-          <small style="color: #666"
-            >Enter the same password as before, for verification.</small
-          >
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            required
+            placeholder="Repeat password"
+          />
 
           <button type="submit">Register</button>
         </form>
+
         <div class="bottom-text">
           Already have an account? <a href="/login/">Sign in</a>
         </div>
