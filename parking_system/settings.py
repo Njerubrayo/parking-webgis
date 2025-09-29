@@ -121,13 +121,20 @@ WSGI_APPLICATION = 'parking_system.wsgi.application'
 # If Fly injects DATABASE_URL, use it; otherwise fall back to local env vars.
 if os.environ.get("DATABASE_URL"):
     _cfg = dj_database_url.parse(
-        os.environ["DATABASE_URL"],
-        conn_max_age=600,
-        ssl_require=True,
-    )
-    # Ensure GeoDjango uses PostGIS backend even when parsed from URL
+    os.environ["DATABASE_URL"] + "?sslmode=require",  # force SSL
+    conn_max_age=600,
+)
     _cfg["ENGINE"] = "django.contrib.gis.db.backends.postgis"
+
     DATABASES = {"default": _cfg}
+    #_cfg = dj_database_url.parse(
+    #    os.environ["DATABASE_URL"],
+       # conn_max_age=600,
+      #  ssl_require=True,
+   # )
+    # Ensure GeoDjango uses PostGIS backend even when parsed from URL
+ #   _cfg["ENGINE"] = "django.contrib.gis.db.backends.postgis"
+    #DATABASES = {"default": _cfg}
 else:
     DATABASES = {
         "default": {
