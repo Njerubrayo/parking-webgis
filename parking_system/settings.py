@@ -161,7 +161,7 @@ if platform.system() == "Windows":
     GEOS_LIBRARY_PATH = r'E:\NJERU\project\ParkingSystem\env310\Lib\site-packages\osgeo\geos_c.dll'
 else:
     os.environ['PROJ_LIB'] = '/usr/share/proj'
-    GDAL_LIBRARY_PATH = '/usr/lib/x86_64-linux-gnu/libgdal.so.30'
+    GDAL_LIBRARY_PATH = '/usr/lib/x86_64-linux-gnu/libgdal.so.36'
     GEOS_LIBRARY_PATH = '/usr/lib/x86_64-linux-gnu/libgeos_c.so'
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
