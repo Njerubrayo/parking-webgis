@@ -55,8 +55,6 @@ SECRET_KEY = env("DJANGO_SECRET_KEY", default="django-insecure-#v+^@d4r)rzutjy6h
 DEBUG = env.bool("DEBUG", default=False)  # set to False on Fly; True locally
 # SECURITY WARNING: don't run with debug turned on in production!
 
-
-
 #DEBUG = True
 
 ALLOWED_HOSTS = ['.fly.dev', 'localhost', '127.0.0.1', # add your exact Fly app host for clarity
@@ -83,7 +81,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  
+    #'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -105,6 +103,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',  # Added for static files
             ],
         },
     },
@@ -121,20 +120,18 @@ WSGI_APPLICATION = 'parking_system.wsgi.application'
 # If Fly injects DATABASE_URL, use it; otherwise fall back to local env vars.
 if os.environ.get("DATABASE_URL"):
     _cfg = dj_database_url.parse(
-    os.environ["DATABASE_URL"] + "?sslmode=require",  # force SSL
-    conn_max_age=600,
-)
+        os.environ["DATABASE_URL"],
+        conn_max_age=600,
+        ssl_require=False,   # disable SSL requirement
+    )
+    # Ensure GeoDjango uses PostGIS backend even when parsed from URL
     _cfg["ENGINE"] = "django.contrib.gis.db.backends.postgis"
+    # Explicitly disable SSL in OPTIONS too
+    _cfg.setdefault("OPTIONS", {})
+    _cfg["OPTIONS"]["sslmode"] = "disable"
 
     DATABASES = {"default": _cfg}
-    #_cfg = dj_database_url.parse(
-    #    os.environ["DATABASE_URL"],
-       # conn_max_age=600,
-      #  ssl_require=True,
-   # )
-    # Ensure GeoDjango uses PostGIS backend even when parsed from URL
- #   _cfg["ENGINE"] = "django.contrib.gis.db.backends.postgis"
-    #DATABASES = {"default": _cfg}
+
 else:
     DATABASES = {
         "default": {
@@ -205,8 +202,13 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'parking' / 'static',
 ]
+
+# Only enable WhiteNoise in production
+if not DEBUG:
+    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Enable WhiteNoise compression and caching
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
@@ -219,3 +221,26 @@ REST_FRAMEWORK = {
     ]
 }
 LOGIN_URL = '/login/'
+
+
+# Logging configuration for debugging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
