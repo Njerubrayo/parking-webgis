@@ -6,7 +6,6 @@ from django.utils import timezone
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-
 class ParkingLot(models.Model):
      id = models.AutoField(primary_key=True)
      slot_no = models.CharField(max_length=100, db_column='Slot_No')
@@ -23,9 +22,6 @@ class ParkingLot(models.Model):
 
      def __str__(self):
         return f"{self.slot_no} - {self.road_name}"
-     
-
-    
 
 class Booking(models.Model):    
     VEHICLE_TYPE_CHOICES = [
@@ -88,8 +84,6 @@ class Booking(models.Model):
     def __str__(self):
         return f"Booking for {self.slot.slot_no} by {self.user.username}"
 
-     
-
 class BookingEvent(models.Model):
     booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
     event_type = models.CharField(max_length=50)  # 'expired', 'no_show', etc.
@@ -98,7 +92,6 @@ class BookingEvent(models.Model):
 
     def __str__(self):
         return f"{self.event_type} for booking {self.booking.id} at {self.timestamp}"
-
 
 class UserProfile(models.Model):
     ROLE_CHOICES = [

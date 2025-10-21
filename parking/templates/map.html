@@ -33,7 +33,7 @@
     <!--leaflet.compass plugin-->
     <link
       rel="stylesheet"
-      href="https://unpkg.com/leaflet-compass/dist/leaflet-compass.css" 
+      href="https://unpkg.com/leaflet-compass/dist/leaflet-compass.css"
     />
     <script src="https://unpkg.com/leaflet-compass/dist/leaflet-compass.min.js"></script>
 
@@ -47,7 +47,6 @@
         padding: 0;
         height: 100%;
         font-family: "Segoe UI", sans-serif;
-
       }
 
       .navbar {
@@ -59,7 +58,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-       /* flex-shrink: 0; /* prevent navbar from collapsing */
       }
 
       .logout-btn {
@@ -73,6 +71,7 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
       }
+
       .logout-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
@@ -81,7 +80,6 @@
       .main-content {
         display: flex;
         height: calc(100% - 70px);
-         
       }
 
       .sidebar {
@@ -89,7 +87,7 @@
         background-color: #2f2f2f;
         color: white;
         padding: 1.5rem;
-        min-height: 70%;  /*stretch to match main-content height */
+        min-height: 70%; /* stretch to match main-content height */
       }
 
       .sidebar h2 {
@@ -101,7 +99,6 @@
       #map {
         flex: 1;
         height: 100%;
-       
       }
 
       /* Buttons */
@@ -113,39 +110,44 @@
         font-weight: bold;
         transition: background 0.3s ease, transform 0.05s ease;
       }
+
       .btn:active {
         transform: translateY(1px);
       }
+
       .btn-vicinity {
         background: #2196f3;
         color: white;
         width: 100%;
         margin-bottom: 10px;
       }
+
       .btn-vicinity:hover {
         background: #1976d2;
       }
+
       .btn-search {
         background: #4caf50;
         color: white;
       }
+
       .btn-search:hover {
         background: #45a049;
       }
 
-#show-active,
-#show-no-show,
-#view-dashboard-btn {
-  flex: 1;            /* equal width for both buttons */
-  max-width: 100%;    /* prevent overflow */
-}
+      #show-active,
+      #show-no-show,
+      #view-dashboard-btn {
+        flex: 1; /* equal width for both buttons */
+        max-width: 100%; /* prevent overflow */
+      }
 
-  
       .btn-no-show {
         background: #d32f2f;
         color: white;
         flex: 1;
       }
+
       .btn-no-show:hover {
         background: #b71c1c;
       }
@@ -158,11 +160,12 @@
         border-radius: 6px;
         cursor: pointer;
         font-weight: bold;
-      
       }
+
       .btn-dashboard:hover {
         background-color: #e0a800;
       }
+
       .section-divider {
         border: none;
         border-top: 2px solid #ccc;
@@ -174,6 +177,7 @@
         max-width: 260px; /* controls width */
         max-height: 260px; /* controls height */
       }
+
       #vehicleChartCard {
         margin-bottom: 1.5rem; /* increases space below the donut chart */
       }
@@ -185,10 +189,12 @@
         width: 100%; /* fill its container */
         box-sizing: border-box;
       }
+
       #vehicleLegend div {
         display: flex;
         align-items: center;
       }
+
       #stats-row .card {
         margin-bottom: 0; /* no extra space below cards */
       }
@@ -213,36 +219,44 @@
         font-weight: bold;
         cursor: pointer;
       }
+
       .btn-clear:hover {
         background: #b71c1c;
       }
+
       .btn-confirm {
         background: #4caf50;
         color: white;
         width: 100%;
         margin-top: 8px;
       }
+
       .btn-confirm:hover {
         background: #45a049;
       }
+
       .btn-cancel {
         background: #d32f2f;
         color: white;
         width: 100%;
         margin-top: 10px;
       }
+
       .btn-cancel:hover {
         background: #b71c1c;
       }
+
       .btn-arrived {
         background: #1976d2;
         color: #fff;
         width: 100%;
         margin-top: 10px;
       }
+
       .btn-arrived:hover {
         background: #1565c0;
       }
+
       .btn-navigate {
         background: #2196f3;
         color: white;
@@ -253,6 +267,7 @@
         font-weight: bold;
         cursor: pointer;
       }
+
       .btn-navigate:hover {
         background: #1976d2;
       }
@@ -262,6 +277,7 @@
       .leaflet-bottom {
         z-index: 1000 !important;
       }
+
       .leaflet-routing-container {
         display: none !important;
       }
@@ -280,6 +296,7 @@
         flex-direction: column;
         z-index: 9999;
       }
+
       .loading-circle {
         width: 80px;
         height: 80px;
@@ -288,11 +305,13 @@
         margin-bottom: 20px;
         animation: pulse 1.5s infinite ease-in-out;
       }
+
       .loading-text {
         color: white;
         font-size: 1.4em;
         font-weight: bold;
       }
+
       @keyframes pulse {
         0% {
           transform: scale(1);
@@ -316,12 +335,14 @@
         border-radius: 8px;
         display: none;
       }
+
       .timer-boxes {
         display: flex;
         gap: 6px;
         justify-content: center;
         margin-bottom: 10px;
       }
+
       .timer-box {
         flex: 1;
         background: #333;
@@ -332,18 +353,21 @@
         border-radius: 6px;
         text-align: center;
       }
+
       .extend-label {
         color: #aaa;
         font-size: 0.9rem;
         margin: 10px 0 6px;
         display: block;
       }
+
       .extend-row {
         display: flex;
         gap: 6px;
         justify-content: center;
         margin-bottom: 10px;
       }
+
       .extend-input {
         width: 70px;
         padding: 8px;
@@ -365,16 +389,19 @@
         cursor: pointer;
         transition: all 0.2s ease;
       }
+
       .travel-mode-btn:hover {
         background: #1b5e20;
         transform: scale(1.02);
       }
+
       .travel-mode-btn.active {
         background: #1b5e20;
         border: 2px solid #ffffff;
         box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
         transform: scale(1.03);
       }
+
       .travel-mode-btn.active:hover {
         background: #1b5e20;
         transform: scale(1.03);
@@ -390,9 +417,11 @@
         cursor: pointer;
         border: 1px solid transparent;
       }
+
       .route-option:hover {
         background: #444;
       }
+
       .route-option.active {
         border-color: #ffc107;
         background: #222;
@@ -405,13 +434,16 @@
         border-left: 4px solid #ffc107;
         padding-left: 6px;
       }
+
       #guidance-panel.collapsed {
         height: auto;
         max-height: none;
       }
+
       #guidance-panel.collapsed #guidance-steps {
         display: none;
       }
+
       #toggle-guidance {
         background: none;
         border: none;
@@ -419,6 +451,7 @@
         cursor: pointer;
         color: #555;
       }
+
       #toggle-guidance:hover {
         color: #000;
       }
@@ -431,18 +464,22 @@
         font-size: 12px;
         font-weight: 600;
       }
+
       .badge-active {
         background: #d4edda;
         color: #155724;
       }
+
       .badge-arrived {
         background: #cce5ff;
         color: #004085;
       }
+
       .badge-no_show {
         background: #ffeeba;
         color: #856404;
       }
+
       .badge-expired {
         background: #e2e3e5;
         color: #6c757d;
@@ -465,41 +502,48 @@
           height: auto;
           text-align: center;
         }
+
         #map {
           height: 70vh;
         }
+
         .extend-row {
           flex-direction: column;
           align-items: center;
         }
-       #stats-row {
-    flex-wrap: wrap; /* allow wrapping */
-  }
-  #stats-row .col-md-3 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
 
-  /* Donut chart legend stacks below chart */
-  #vehicleChartCard .card-body {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  #vehicleLegend {
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-  }
+        #stats-row {
+          flex-wrap: wrap; /* allow wrapping */
+        }
 
-  /* Reduce tall chart heights for small screens */
-  #vehicleByDayChart {
-    max-height: 300px;
-  }
-  #revenueByDayChart {
-    max-height: 250px;
-  }
-  #revenueChart {
-    max-height: 250px;
-  }
+        #stats-row .col-md-3 {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+
+        /* Donut chart legend stacks below chart */
+        #vehicleChartCard .card-body {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        #vehicleLegend {
+          width: 100%;
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* Reduce tall chart heights for small screens */
+        #vehicleByDayChart {
+          max-height: 300px;
+        }
+
+        #revenueByDayChart {
+          max-height: 250px;
+        }
+
+        #revenueChart {
+          max-height: 250px;
+        }
       }
 
       @media (max-width: 480px) {
@@ -524,13 +568,15 @@
         .extend-input {
           width: 100%;
         }
+
         #stats-row .col-md-3 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
       }
     </style>
   </head>
+
   <body>
     <div class="navbar">
       <div>ParkPoa</div>
@@ -650,10 +696,10 @@
         </div>
 
         {% if role == 'admin' %}
-        <div style="margin-bottom: 1rem; display: flex; gap: 4%; width: 100%;">
-        <button id="view-dashboard-btn" class="btn btn-dashboard w-100 mb-2">
-          View Dashboard
-        </button>
+        <div style="margin-bottom: 1rem; display: flex; gap: 4%; width: 100%">
+          <button id="view-dashboard-btn" class="btn btn-dashboard w-100 mb-2">
+            View Dashboard
+          </button>
         </div>
         {% endif %} {% if role == 'admin' %}
         <div
@@ -691,7 +737,6 @@
               margin-bottom: 6px;
             "
           />
-
           <button id="add-staff-btn" class="btn btn-confirm">Add Staff</button>
         </div>
         {% endif %} {% endif %} {% if role == 'user' and current_booking_id %}
@@ -765,7 +810,6 @@
             <div style="margin-bottom: 8px; font-weight: bold; color: #ffc107">
               Choose travel mode:
             </div>
-
             <div
               id="mode-buttons"
               style="display: flex; gap: 6px; margin-bottom: 10px"
@@ -812,119 +856,125 @@
       <div id="map"></div>
 
       <!-- Dashboard container (hidden by default) -->
-    <div
-  id="dashboard-container"
-  style="
-    display: none;
-    padding: 1rem;
-    background: #ffffffff;
-    border-radius: 8px;
-    flex: 1;
-    min-height: 100%;
-    overflow-y: auto;
-  "
->
-  <h2 style="margin-bottom: 1rem">Admin Dashboard</h2>
+      <div
+        id="dashboard-container"
+        style="
+          display: none;
+          padding: 1rem;
+          background: #ffffffff;
+          border-radius: 8px;
+          flex: 1;
+          min-height: 100%;
+          overflow-y: auto;
+        "
+      >
+        <h2 style="margin-bottom: 1rem">Admin Dashboard</h2>
 
-  <!-- Summary cards -->
-  <div class="row mb-4" id="stats-row">
-    <div class="col-6 col-md-3">
-      <div class="card text-white bg-primary">
-        <div class="card-body">
-          <h5 class="card-title">Arrived</h5>
-          <h3 id="stat-arrived">0</h3>
+        <!-- Summary cards -->
+        <div class="row mb-4" id="stats-row">
+          <div class="col-6 col-md-3">
+            <div class="card text-white bg-primary">
+              <div class="card-body">
+                <h5 class="card-title">Arrived</h5>
+                <h3 id="stat-arrived">0</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card text-white bg-danger">
+              <div class="card-body">
+                <h5 class="card-title">No Show</h5>
+                <h3 id="stat-no-show">0</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card text-white bg-warning">
+              <div class="card-body">
+                <h5 class="card-title">Expired</h5>
+                <h3 id="stat-expired">0</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card text-white bg-success">
+              <div class="card-body">
+                <h5 class="card-title">Revenue</h5>
+                <h3 id="stat-revenue">0</h3>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-6 col-md-3">
-      <div class="card text-white bg-danger">
-        <div class="card-body">
-          <h5 class="card-title">No Show</h5>
-          <h3 id="stat-no-show">0</h3>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-md-3">
-      <div class="card text-white bg-warning">
-        <div class="card-body">
-          <h5 class="card-title">Expired</h5>
-          <h3 id="stat-expired">0</h3>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-md-3">
-      <div class="card text-white bg-success">
-        <div class="card-body">
-          <h5 class="card-title">Revenue</h5>
-          <h3 id="stat-revenue">0</h3>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Divider line -->
-  <hr class="section-divider" />
+        <!-- Divider line -->
+        <hr class="section-divider" />
 
-  <!-- Charts -->
-  <div class="row" style="margin-bottom: 1rem; padding-top: 1rem">
-    <!-- Vehicle Types -->
-    <div class="col-md-4" id="vehicleChartCard">
-      <div class="card">
-        <div class="card-header">Vehicle Types</div>
-        <div
-          class="card-body"
-          style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap"
-        >
-          <canvas
-            id="vehicleChart"
-            style="max-width: 260px; max-height: 260px"
-          ></canvas>
-          <div id="vehicleLegend" style="flex: 1"></div>
+        <!-- Charts -->
+        <div class="row" style="margin-bottom: 1rem; padding-top: 1rem">
+          <!-- Vehicle Types -->
+          <div class="col-md-4" id="vehicleChartCard">
+            <div class="card">
+              <div class="card-header">Vehicle Types</div>
+              <div
+                class="card-body"
+                style="
+                  display: flex;
+                  gap: 1rem;
+                  align-items: center;
+                  flex-wrap: wrap;
+                "
+              >
+                <canvas
+                  id="vehicleChart"
+                  style="max-width: 260px; max-height: 260px"
+                ></canvas>
+                <div id="vehicleLegend" style="flex: 1"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vehicle Types by Day -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">Vehicle Types by Day</div>
+              <div class="card-body" style="height: 400px">
+                <canvas id="vehicleByDayChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Booking Status -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">Booking Status</div>
+              <div class="card-body" style="height: 250px">
+                <canvas id="statusChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Revenue Trend -->
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">Revenue Trend</div>
+              <div class="card-body" style="height: 300px">
+                <canvas id="revenueChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Revenue by Day -->
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">Revenue by Day</div>
+              <div class="card-body" style="height: 300px">
+                <canvas id="revenueByDayChart"></canvas>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Vehicle Types by Day -->
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">Vehicle Types by Day</div>
-        <div class="card-body" style="height: 400px">
-          <canvas id="vehicleByDayChart"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <!-- Booking Status -->
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">Booking Status</div>
-        <div class="card-body" style="height: 250px">
-          <canvas id="statusChart"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <!-- Revenue Trend -->
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">Revenue Trend</div>
-        <div class="card-body" style="height: 300px">
-          <canvas id="revenueChart"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <!-- Revenue by Day -->
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">Revenue by Day</div>
-        <div class="card-body" style="height: 300px">
-          <canvas id="revenueByDayChart"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
     <!-- Route Guidance Panel -->
     <div
@@ -971,901 +1021,901 @@
     </div>
 
     <script>
-                                                                                                                                    /* -------------------- Section 1: Map setup & globals -------------------- */
-                                                                                                                                    const mapboxToken = 'pk.eyJ1IjoiYnJuanJ1IiwiYSI6ImNtZmhkMm9qYTAwaTQybHNsYW9uaGpkb3YifQ.LeKVLypz4zj6uyk4s79iUA';
-
-                                                                                                                                    const styleCache = {};
-                                                                                                                                    function getMapboxLayer(styleId) {
-                                                                                                                                      if (!styleCache[styleId]) {
-                                                                                                                                        styleCache[styleId] = L.tileLayer(
-                                                                                                                                          `https://api.mapbox.com/styles/v1/${styleId}/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`,
-                                                                                                                                          { tileSize: 512, zoomOffset: -1, maxNativeZoom: 19, maxZoom: 22,
-                                                                                                                                            attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> © <a href="https://www.mapbox.com/">Mapbox</a>' }
-                                                                                                                                        );
-                                                                                                                                      }
-                                                                                                                                      return styleCache[styleId];
-                                                                                                                                    }
-
-                                                                                                                                    const mapboxStyles = {
-                                                                                                                                      "Streets": getMapboxLayer('mapbox/streets-v11'),
-                                                                                                                                      "Outdoors": getMapboxLayer('mapbox/outdoors-v11'),
-                                                                                                                                      "Light": getMapboxLayer('mapbox/light-v10'),
-                                                                                                                                      "Dark": getMapboxLayer('mapbox/dark-v10'),
-                                                                                                                                      "Satellite": getMapboxLayer('mapbox/satellite-v9'),
-                                                                                                                                      "Satellite + Streets": getMapboxLayer('mapbox/satellite-streets-v11'),
-                                                                                                                                      "Navigation Day": getMapboxLayer('mapbox/navigation-day-v1'),
-                                                                                                                                      "Navigation Night": getMapboxLayer('mapbox/navigation-night-v1')
-                                                                                                                                    };
-
-                                                                                                                                    const map = L.map('map', { maxZoom: 22, zoomControl: true, layers: [mapboxStyles["Streets"]] })
-                                                                                                                                      .setView([-1.3, 36.8], 17);
-
-                                                                                          /* --- Compass Control (static north arrow, zoom responsive) --- */
-                                                                                                   const compassControl = L.control({ position: 'topleft' });
-                                                                                                   compassControl.onAdd = function(map) {
-                                                                                                     const div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
-                                                                                                     div.style.width = '34px';
-                                                                                                     div.style.height = '34px';
-                                                                                                     div.style.background = '#fff';
-                                                                                                     div.style.display = 'flex';
-                                                                                                     div.style.alignItems = 'center';
-                                                                                                     div.style.justifyContent = 'center';
-                                                                                                     div.style.cursor = 'pointer';
-                                                                                                     div.title = 'Reset to North';
-                                                                                                     div.onmouseenter = () => div.style.background = '#eee';
-                                                                                                     div.onmouseleave = () => div.style.background = '#fff';
-                                                                                                     div.tabIndex = 0;
-                                                                                                     div.onkeypress = (e) => { if (e.key === 'Enter') div.onclick(); };
-
-
-                                                                                                     // Local static file reference
-                                                                                                     div.innerHTML = '<img src="{% static "parking/img/compass-svgrepo-com.svg" %}" style="width:26px;height:26px;display:block;">';
-                                                                                                     div.onclick = () => {
-                                                                                                       // Optional: re-center on user location if available
-                                                                                                       if (typeof userLat !== 'undefined' && typeof userLon !== 'undefined') {
-                                                                                                         map.setView([userLat, userLon], map.getZoom());
-                                                                                                       } else {
-                                                                                                         map.setView(map.getCenter(), map.getZoom());
-                                                                                                       }
-                                                                                                     };
-                                                                                                     return div;
-                                                                                                   };
-
-                                                                                                   // Add compass first so it appears before layer switch
-                                                                                                   compassControl.addTo(map);
-
-                                                                                                   // Show only after zoom level 16+
-                                                                                                  map.on('zoomend', function() {
-                                                                                               const compassEl = document.querySelector('.leaflet-control img[src*="compass"]')?.closest('.leaflet-control');
-                                                                                               if (map.getZoom() >= 16) {
-                                                                                                 if (compassEl) compassEl.style.display = 'flex';
-                                                                                               } else {
-                                                                                                 if (compassEl) compassEl.style.display = 'none';
-                                                                                               }
-
-                                                                                             });
-
-
-
-                                                                                                                                    L.control.layers(mapboxStyles, null, { position: 'topleft' }).addTo(map);
-
-
-
-                                                                                                                                    const currentBookingId = {{ current_booking_id|default:"null" }};
-                                                                                                                                    let expiryTsMs = {{ expiry_ts_ms|default:"null" }};
-                                                                                                                                    const graceTsMs = {{ grace_ts_ms|default:"null" }};
-                                                                                                                                    let geojsonLayer = null;
-
-                                                                                                                                    let vicinityMode = false;
-                                                                                                                                    let vicinityLat = null;
-                                                                                                                                    let vicinityLon = null;
-                                                                                                                                    let vicinityRadius = 300;
-                                                                                                                                    let didFitBounds = false;
-                                                                                                                                    let vicinityMarker = null;
-                                                                                                                                    let vicinityCircle = null;
-
-
-
-                                                                                                                                    function showLoading(msg) {
-                                                                                                                                      const overlay = document.getElementById('loading-overlay');
-                                                                                                                                      if (msg) overlay.querySelector('.loading-text').textContent = msg;
-                                                                                                                                      overlay.style.display = 'flex';
-                                                                                                                                    }
-                                                                                                                                    function hideLoading() {
-                                                                                                                                      document.getElementById('loading-overlay').style.display = 'none';
-                                                                                                                                    }
-
-                                                                                                                                    let bookedSlotLatLng = null;
-                                                                                                                                    let arrivalWatcherId = null;
-                                                                                                                                    const ARRIVAL_RADIUS_M = 30;
-                                                                                                                                    const ARRIVAL_POLL_MS = 15000;
-
-                                                                                                                                    let bookedSlotLat = null;
-                                                                                                                                    let bookedSlotLon = null;
-
-                                                                                                                                    function distanceMeters(lat1, lon1, lat2, lon2) {
-                                                                                                                                      const R = 6371000;
-                                                                                                                                      const toRad = x => x * Math.PI / 180;
-                                                                                                                                      const dLat = toRad(lat2 - lat1);
-                                                                                                                                      const dLon = toRad(lon2 - lon1);
-                                                                                                                                      const a = Math.sin(dLat/2)**2 +
-                                                                                                                                                Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-                                                                                                                                                Math.sin(dLon/2)**2;
-                                                                                                                                      const c = 2 * Math.asin(Math.sqrt(a));
-                                                                                                                                      return R * c;
-                                                                                                                                    }
-
-                                                                                                                                    /* -------------------- Section 2: Slot loading -------------------- */
-                                                                                                                                    let hasZoomedToBooking = false;
-
-                                                                                                                                    function getFeatureCentroidLatLon(feature, layer) {
-                                                                                                                                      try {
-                                                                                                                                        if (feature?.geometry?.type === 'Point') {
-                                                                                                                                          return { lat: feature.geometry.coordinates[1], lon: feature.geometry.coordinates[0] };
-                                                                                                                                        }
-                                                                                                                                        const c = turf.centroid(feature);
-                                                                                                                                        if (c?.geometry?.coordinates?.length === 2) {
-                                                                                                                                          return { lat: c.geometry.coordinates[1], lon: c.geometry.coordinates[0] };
-                                                                                                                                        }
-                                                                                                                                      } catch (e) { console.warn('Centroid via turf failed', e); }
-                                                                                                                                      if (layer?.getBounds && layer.getBounds().isValid()) {
-                                                                                                                                        const center = layer.getBounds().getCenter();
-                                                                                                                                        return { lat: center.lat, lon: center.lng };
-                                                                                                                                      }
-                                                                                                                                      return null;
-                                                                                                                                    }
-
-                                                                                                                                    async function markArrived() {
-                                                                                                                                      try {
-                                                                                                                                        const res = await fetch('/mark-arrived/', {
-                                                                                                                                          method: 'POST',
-                                                                                                                                          headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
-                                                                                                                                          body: JSON.stringify({ booking_id: currentBookingId })
-                                                                                                                                        });
-                                                                                                                                        const data = await res.json().catch(() => ({}));
-                                                                                                                                        if (!res.ok || data.ok === false) throw new Error(data.error || 'Failed to mark arrival');
-
-                                                                                                                                        // Stop any grace period countdown
-                                                                                                                                        if (arrivalWatcherId) {
-                                                                                                                                          clearInterval(arrivalWatcherId);
-                                                                                                                                          arrivalWatcherId = null;
-                                                                                                                                        }
-
-                                                                                                                                        // Disable the button
-                                                                                                                                        const btn = document.getElementById('arrived-btn');
-                                                                                                                                        if (btn) {
-                                                                                                                                          btn.disabled = true;
-                                                                                                                                          btn.textContent = 'Arrival confirmed';
-                                                                                                                                          btn.style.opacity = '0.8';
-                                                                                                                                          btn.style.cursor = 'default';
-                                                                                                                                        }
-
-                                                                                                                                        // Hide grace countdown
-                                                                                                                                        document.getElementById('grace-countdown').style.display = 'none';
-
-                                                                                                                                        // ✅ Instantly update the badge colour and text
-                                                                                                                                        setBookingStatusBadge('arrived');
-
-                                                                                                                                        alert('Arrival confirmed. Enjoy your parking!');
-                                                                                                                                      } catch (e) {
-                                                                                                                                        console.error(e);
-                                                                                                                                        alert('Could not confirm arrival. Please try again.');
-                                                                                                                                      }
-                                                                                                                                    }
-
-                                                                                                                                    function maybeStartArrivalWatcher() {
-                                                                                                                                      if (!currentBookingId || !bookedSlotLatLng) return;
-                                                                                                                                      if (arrivalWatcherId) return;
-                                                                                                                                      arrivalWatcherId = setInterval(() => {
-                                                                                                                                        if (!navigator.geolocation) return;
-                                                                                                                                        navigator.geolocation.getCurrentPosition((pos) => {
-                                                                                                                                          const lat = pos.coords.latitude;
-                                                                                                                                          const lon = pos.coords.longitude;
-                                                                                                                                          const accuracy = pos.coords.accuracy || 9999;
-                                                                                                                                          if (accuracy > 150) return;
-                                                                                                                                          const dist = distanceMeters(lat, lon, bookedSlotLatLng.lat, bookedSlotLatLng.lon);
-                                                                                                                                          if (dist <= ARRIVAL_RADIUS_M) { markArrived(); }
-                                                                                                                                        }, () => {}, { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 });
-                                                                                                                                      }, ARRIVAL_POLL_MS);
-                                                                                                                                    }
-
-                                                                                                                                    let graceCountdownId = null;
-                                                                                                                                    function startGraceCountdown(graceMs) {
-                                                                                                                                      const graceBox = document.getElementById('grace-countdown');
-                                                                                                                                      if (!graceMs || bookedSlotLatLng === null) { graceBox.style.display = 'none'; return; }
-                                                                                                                                      graceBox.style.display = 'block';
-                                                                                                                                      function updateGrace() {
-                                                                                                                                        const now = Date.now();
-                                                                                                                                        const diff = graceMs - now;
-                                                                                                                                        if (diff <= 0 || arrivalWatcherId === null) { graceBox.style.display = 'none'; return; }
-                                                                                                                                        const totalSeconds = Math.floor(diff / 1000);
-                                                                                                                                        const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
-                                                                                                                                        const seconds = String(totalSeconds % 60).padStart(2, '0');
-                                                                                                                                        document.getElementById('grace-minutes').textContent = minutes;
-                                                                                                                                        document.getElementById('grace-seconds').textContent = seconds;
-                                                                                                                                        graceCountdownId = setTimeout(updateGrace, 500);
-                                                                                                                                      }
-                                                                                                                                      if (graceCountdownId) clearTimeout(graceCountdownId);
-                                                                                                                                      updateGrace();
-                                                                                                                                    }
-
-                                                                                                                                    function loadParkingLots(url) {
-                                                                                                                                      if (!url) {
-                                                                                                                                        if (vicinityMode && vicinityLat && vicinityLon) {
-                                                                                                                                          url = `/api/parkinglots/?lat=${vicinityLat}&lng=${vicinityLon}&radius=${vicinityRadius}&t=${Date.now()}`;
-                                                                                                                                        } else {
-                                                                                                                                          url = `/api/parkinglots/?t=${Date.now()}`;
-                                                                                                                                        }
-                                                                                                                                      }
-
-                                                                                                                                      fetch(url)
-                                                                                                                                        .then(res => res.json())
-                                                                                                                                        .then(data => {
-                                                                                                                                          if (geojsonLayer) map.removeLayer(geojsonLayer);
-
-                                                                                                                                          geojsonLayer = L.geoJSON(data, {
-                                                                                                                                            onEachFeature: function (feature, layer) {
-                                                                                                                                              const props = feature.properties;
-                                                                                                                                              let popupHtml = `<strong>Slot Number:</strong> ${props.slot_no}<br>`;
-
-                                                                                                                     // Only users can book
-                                                                                                                                              if (feature.id === currentBookingId && "{{ role }}" === "user") {
-                                                                                                                                                popupHtml += `<span style="color: #1976d2; font-weight:600;">Your booking</span>`;
-                                                                                                                                              } else if (props.status !== 'occupied' && "{{ role }}" === "user") {
-                                                                                                                                                popupHtml += `
-                                                                                                                                                  <a href="/book/${feature.id}/">
-                                                                                                                                                    <button style="margin-top: 10px; background: linear-gradient(135deg, #4CAF50, #388E3C);
-                                                                                                                                                      color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer;">
-                                                                                                                                                      Book Slot
-                                                                                                                                                    </button>
-                                                                                                                                                  </a>`;
-                                                                                                                                              } else if (props.status === 'occupied') {
-                                                                                                                                                popupHtml += `<span style="color: red;">Occupied</span>`;
-                                                                                                                                              }
-
-                                                                                                                                              layer.bindPopup(popupHtml);
-
-                                                                                                                                              if (feature.id === currentBookingId && "{{ role }}" === "user") {
-                                                                                                                                                try {
-                                                                                                                                                  const center = getFeatureCentroidLatLon(feature, layer);
-                                                                                                                                                  if (!hasZoomedToBooking && center) {
-                                                                                                                                                    map.setView([center.lat, center.lon], 20);
-                                                                                                                                                    didFitBounds = true;
-                                                                                                                                                    hasZoomedToBooking = true;
-                                                                                                                                                  }
-                                                                                                                                                  if (center && (!bookedSlotLatLng ||
-                                                                                                                                                      (bookedSlotLatLng.lat !== center.lat || bookedSlotLatLng.lon !== center.lon))) {
-                                                                                                                                                    bookedSlotLatLng = center;
-                                                                                                                                                    bookedSlotLat = center.lat;
-                                                                                                                                                    bookedSlotLon = center.lon;
-
-                                                                                                                                                    if (props.arrived) {
-                                                                                                                                                      const btn = document.getElementById('arrived-btn');
-                                                                                                                                                      if (btn) {
-                                                                                                                                                        btn.disabled = true;
-                                                                                                                                                        btn.textContent = 'Arrival confirmed';
-                                                                                                                                                        btn.style.opacity = '0.8';
-                                                                                                                                                        btn.style.cursor = 'default';
-                                                                                                                                                      }
-                                                                                                                                                      document.getElementById('grace-countdown').style.display = 'none';
-                                                                                                                                                      if (arrivalWatcherId) { clearInterval(arrivalWatcherId); arrivalWatcherId = null; }
-                                                                                                                                                    } else {
-                                                                                                                                                      maybeStartArrivalWatcher();
-                                                                                                                                                      startGraceCountdown(graceTsMs);
-                                                                                                                                                    }
-
-                                                                                                                                                    const navWrap = document.getElementById('navigate-wrapper');
-                                                                                                                                                    if (navWrap) navWrap.style.display = 'block';
-                                                                                                                                                  }
-                                                                                                                                                } catch (e) {
-                                                                                                                                                  console.warn('Could not determine booked slot coordinates', e);
-                                                                                                                                                }
-                                                                                                                                              }
-                                                                                                                                            },
-                                                                                                                                            style: function (feature) {
-                                                                                                                                              const isUserSlot = feature.id === currentBookingId && "{{ role }}" === "user";
-                                                                                                                                              const status = feature.properties.status;
-                                                                                                                                              return {
-                                                                                                                                                color: isUserSlot ? '#0000FF' : '#0077ff',
-                                                                                                                                                weight: 3, opacity: 1, fillOpacity: 0.6,
-                                                                                                                                                fillColor: status === 'occupied' ? '#ff5555' : '#55ff55'
-                                                                                                                                              };
-                                                                                                                                            }
-                                                                                                                                          }).addTo(map);
-
-                                                                                                                                          if (!didFitBounds && geojsonLayer.getBounds().isValid()) {
-                                                                                                                                            map.fitBounds(geojsonLayer.getBounds(), { padding: [20, 20], maxZoom: 20 });
-                                                                                                                                            didFitBounds = true;
-                                                                                                                                          }
-                                                                                                                                        })
-                                                                                                                                        .catch(e => console.error('Failed to load parking lots', e))
-                                                                                                                                        .finally(() => hideLoading());
-                                                                                                                                    }
-
-                                                                                                                                    loadParkingLots();
-                                                                                                                                    setInterval(() => loadParkingLots(), 15000);
-                                                                                                                                    maybeStartArrivalWatcher();
-
-                                                                                                                                    /* -------------------- Vicinity button (users only) -------------------- */
-                                                                                                                                    document.getElementById('my-vicinity-btn')?.addEventListener('click', () => {
-                                                                                                                                      if ("{{ role }}" !== "user") return; // guard
-                                                                                                                                      if (!navigator.geolocation) { alert('Geolocation is not supported by your browser.'); return; }
-                                                                                                                                      showLoading('Getting parking spaces ...');
-                                                                                                                                      navigator.geolocation.getCurrentPosition((pos) => {
-                                                                                                                                        const userLat = pos.coords.latitude;
-                                                                                                                                        const userLon = pos.coords.longitude;
-                                                                                                                                        const accuracy = pos.coords.accuracy;
-                                                                                                                                        vicinityMode = true;
-                                                                                                                                        vicinityLat = userLat;
-                                                                                                                                        vicinityLon = userLon;
-                                                                                                                                        vicinityRadius = Math.max(300, accuracy);
-                                                                                                                                        didFitBounds = false;
-                                                                                                                                        if (vicinityMarker) map.removeLayer(vicinityMarker);
-                                                                                                                                        if (vicinityCircle) map.removeLayer(vicinityCircle);
-                                                                                                                                        vicinityMarker = L.marker([userLat, userLon]).addTo(map)
-                                                                                                                                          .bindPopup(`You are here<br>Accuracy: ±${Math.round(accuracy)} m`).openPopup();
-                                                                                                                                        vicinityCircle = L.circle([userLat, userLon], {
-                                                                                                                                          radius: accuracy, color: '#136aec', fillColor: '#136aec', fillOpacity: 0.15
-                                                                                                                                        }).addTo(map);
-                                                                                                                                        setTimeout(() => { map.setView([userLat, userLon], 18); }, 300);
-                                                                                                                                        document.getElementById('clear-layer-wrapper').style.display = 'block';
-                                                                                                                                        loadParkingLots();
-                                                                                                                                      }, () => { hideLoading(); alert('Unable to retrieve your location.'); },
-                                                                                                                                      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
-                                                                                                                                    });
-
-                                                                                                                                    /* -------------------- Clear Layer -------------------- */
-                                                                                                                                    document.getElementById('clear-layer-btn')?.addEventListener('click', () => {
-                                                                                                                                      if ("{{ role }}" !== "user") return; // guard
-                                                                                                                                      vicinityMode = false; vicinityLat = null; vicinityLon = null; didFitBounds = false;
-                                                                                                                                      if (vicinityMarker) { map.removeLayer(vicinityMarker); vicinityMarker = null; }
-                                                                                                                                      if (vicinityCircle) { map.removeLayer(vicinityCircle); vicinityCircle = null; }
-                                                                                                                                      loadParkingLots();
-                                                                                                                                      document.getElementById('clear-layer-wrapper').style.display = 'none';
-                                                                                                                                    });
-
-                                                                                                                                    /* -------------------- Search (users only) -------------------- */
-                                                                                                                                    document.getElementById('search-btn')?.addEventListener('click', () => {
-                                                                                                                                      if ("{{ role }}" !== "user") return; // guard
-                                                                                                                                      const query = document.getElementById('location-search').value.trim();
-                                                                                                                                      if (!query) return;
-                                                                                                                                      vicinityMode = false; vicinityLat = null; vicinityLon = null; didFitBounds = true;
-                                                                                                                                      showLoading('Searching location ...');
-                                                                                                                                      fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`)
-                                                                                                                                        .then(res => res.json())
-                                                                                                                                        .then(data => {
-                                                                                                                                          if (data.length > 0) {
-                                                                                                                                            const lat = parseFloat(data[0].lat);
-                                                                                                                                            const lon = parseFloat(data[0].lon);
-                                                                                                                                            map.setView([lat, lon], 19);
-                                                                                                                                            loadParkingLots(`/api/parkinglots/?lat=${lat}&lng=${lon}&radius=500`);
-                                                                                                                                          } else { alert('Location not found.'); }
-                                                                                                                                        })
-                                                                                                                                        .catch(() => alert('Error searching location.'))
-                                                                                                                                        .finally(() => hideLoading());
-                                                                                                                                    });
-                                                                                                                                    document.getElementById('location-search')?.addEventListener('keypress', (e) => {
-                                                                                                                                      if ("{{ role }}" !== "user") return; // guard
-                                                                                                                                      if (e.key === 'Enter') { document.getElementById('search-btn').click(); }
-                                                                                                                                    });
-
-                                                                                                                                    /* -------------------- Navigate button (multi-route) -------------------- */
-
-                                                                               // =======================
-                                                                        // Global variables
-                                                                        // =======================
-                                                                        let userLat = null;
-                                                                        let userLon = null;
-                                                                        let currentProfile = 'mapbox/driving-traffic';
-                                                                        let currentRoutes = [];
-                                                                        let routeLayers = [];
-                                                                        let markerLayers = [];
-                                                                        let navWatchId = null; // NEW: ID for continuous location watcher
-                                                                        let startMarker = null; // NEW: Keep reference to start marker so we can move it
-
-                                                                        // =======================
-                                                                        // Navigate button click
-                                                                        // =======================
-                                                                        document.getElementById('navigate-btn')?.addEventListener('click', () => {
-                                                                          if ("{{ role }}" !== "user") return;
-                                                                          if (bookedSlotLat == null || bookedSlotLon == null) {
-                                                                            alert('Destination not set yet. Please confirm a booking first.');
-                                                                            return;
-                                                                          }
-                                                                          if (!navigator.geolocation) {
-                                                                            alert('Geolocation is not supported by your browser.');
-                                                                            return;
-                                                                          }
-                                                      document.getElementById('nav-mode-container').style.display = 'block';
-
-                                                      // Track whether we should keep the camera following the user
-                                                      let followUser = true;
-                                                      let dragTimeout;
-
-                                                      // Stop following if the user manually drags the map
-                                                      map.on('dragstart', () => {
-                                                        followUser = false;
-                                                        clearTimeout(dragTimeout);
-
-                                                        // Auto‑resume after 10 seconds of no dragging
-                                                        dragTimeout = setTimeout(() => {
-                                                          followUser = true;
-                                                        }, 10000);
-                                                      });
-
-                                                      if (navWatchId === null) {
-                                                        navWatchId = navigator.geolocation.watchPosition(
-                                                          (pos) => {
-                                                            userLat = pos.coords.latitude;
-                                                            userLon = pos.coords.longitude;
-
-                                                            // Move existing marker or create it if missing
-                                                            if (startMarker) {
-                                                              startMarker.setLatLng([userLat, userLon]);
-                                                            }
-
-                                                            // Smooth camera follow if enabled
-                                                            if (followUser) {
-                                                              map.flyTo([userLat, userLon], 17, { animate: true, duration: 1 });
-                                                            }
-
-                                                            // Draw route if we don't have one yet
-                                                            if (!currentRoutes.length) {
-                                                              changeMode('mapbox/driving-traffic');
-                                                            }
-                                                          },
-                                                          (err) => {
-                                                            alert('Unable to get your current location.');
-                                                            console.error(err);
-                                                          },
-                                                          { enableHighAccuracy: true, maximumAge: 0 }
-                                                        );
-                                                      } else {
-                                                        // Already tracking — just draw the route
-                                                        changeMode('mapbox/driving-traffic');
-                                                      }
-
-
-                                                                        });
-
-                                                                        // =======================
-                                                                        // Mode change
-                                                                        // =======================
-                                                                        function changeMode(profile, clickedBtn = null) {
-                                                                          if ("{{ role }}" !== "user") return;
-
-                                                                          // Remove 'active' from all mode buttons
-                                                                          document.querySelectorAll('.travel-mode-btn').forEach(btn => {
-                                                                            btn.classList.remove('active');
-                                                                          });
-
-                                                                          // Highlight clicked button or match profile
-                                                                          if (clickedBtn) {
-                                                                            clickedBtn.classList.add('active');
-                                                                          } else {
-                                                                            const match = document.querySelector(
-                                                                              `.travel-mode-btn[onclick*="${profile}"]`
-                                                                            );
-                                                                            if (match) match.classList.add('active');
-                                                                          }
-
-                                                                          currentProfile = profile;
-                                                                          getRoutes(profile);
-                                                                        }
-
-                                                                        // =======================
-                                                                        // Get routes from Mapbox
-                                                                        // =======================
-                                                                        async function getRoutes(profile) {
-                                                                          if ("{{ role }}" !== "user") return;
-                                                                          if (userLat == null || userLon == null) {
-                                                                            document.getElementById('routes-panel').innerHTML = 'Waiting for location...';
-                                                                            return;
-                                                                          }
-
-                                                                          // Clear old routes
-                                                                          routeLayers.forEach(l => map.removeLayer(l));
-                                                                          routeLayers = [];
-
-                                                                          document.getElementById('routes-panel').innerHTML = 'Loading routes...';
-
-                                                                          const url = `https://api.mapbox.com/directions/v5/${profile}/${userLon},${userLat};${bookedSlotLon},${bookedSlotLat}?alternatives=true&overview=full&geometries=geojson&steps=true&access_token=${mapboxToken}`;
-                                                                          const res = await fetch(url);
-                                                                          const data = await res.json();
-
-                                                                          currentRoutes = data.routes;
-                                                                          drawRoutes(currentRoutes);
-
-                                                                          // Clear old markers except startMarker (we'll reuse it)
-                                                                          markerLayers.forEach(m => {
-                                                                            if (m !== startMarker) map.removeLayer(m);
-                                                                          });
-                                                                          markerLayers = startMarker ? [startMarker] : [];
-
-                                                                          // Create start marker if it doesn't exist yet
-                                                                          if (!startMarker) {
-                                                                            startMarker = L.marker([userLat, userLon], {
-                                                                              icon: L.icon({
-                                                                                iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-                                                                                shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-                                                                                iconSize: [25, 41],
-                                                                                iconAnchor: [12, 41],
-                                                                                popupAnchor: [1, -34]
-                                                                              })
-                                                                            }).bindPopup('Your Location').addTo(map);
-                                                                            markerLayers.push(startMarker);
-                                                                          }
-
-                                                                          // Always recreate destination marker
-                                                                          const destMarker = L.marker([bookedSlotLat, bookedSlotLon], {
-                                                                            icon: L.icon({
-                                                                              iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
-                                                                              shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-                                                                              iconSize: [25, 41],
-                                                                              iconAnchor: [12, 41],
-                                                                              popupAnchor: [1, -34]
-                                                                            })
-                                                                          }).bindPopup('Destination Slot').addTo(map);
-
-                                                                          markerLayers.push(destMarker);
-
-                                                                          if (!currentRoutes || currentRoutes.length === 0) {
-                                                                            document.getElementById('routes-panel').innerHTML =
-                                                                              '<div style="color:#aaa; font-size:0.9rem;">No routes found for this mode.</div>';
-                                                                            document.getElementById('guidance-panel').style.display = 'none';
-                                                                            return;
-                                                                          }
-
-                                                                          populateRouteList(currentRoutes);
-                                                                        }
-
-                                                                        // =======================
-                                                                        // Stop navigation (optional)
-                                                                        // =======================
-                                                                        function stopNavigation() {
-                                                                          if (navWatchId !== null) {
-                                                                            navigator.geolocation.clearWatch(navWatchId);
-                                                                            navWatchId = null;
-                                                                          }
-                                                                          startMarker = null;
-                                                                          currentRoutes = [];
-                                                                        }
-
-
-                                                                                                                                    // Draw all routes on the map
-                                                                                                                                    function drawRoutes(routes) {
-                                                                                                                                      routeLayers.forEach(l => map.removeLayer(l));
-                                                                                                                                      routeLayers = [];
-                                                                                                                                      routes.forEach((route, idx) => {
-                                                                                                                                        const isPrimary = idx === 0;
-                                                                                                                                        const color = isPrimary ? '#007bff' : '#888';
-                                                                                                                                        const weight = isPrimary ? 6 : 3;
-                                                                                                                                        const opacity = isPrimary ? 0.9 : 0.5;
-                                                                                                                                        const layer = L.geoJSON(route.geometry, { style: { color, weight, opacity } }).addTo(map);
-                                                                                                                                        routeLayers.push(layer);
-                                                                                                                                      });
-                                                                                                                                      const allCoords = routes.flatMap(r => r.geometry.coordinates.map(c => [c[1], c[0]]));
-                                                                                                                                      map.fitBounds(L.latLngBounds(allCoords));
-                                                                                                                                    }
-
-                                                                                                                                    // Populate the route list in the sidebar
-                                                                                                                                    function populateRouteList(routes) {
-                                                                                                                                      const panel = document.getElementById('routes-panel');
-                                                                                                                                      panel.innerHTML = '';
-
-                                                                                                                                      if (!routes || routes.length === 0) {
-                                                                                                                                        panel.innerHTML = '<div style="color:#aaa; font-size:0.9rem;">No routes available.</div>';
-                                                                                                                                        document.getElementById('guidance-panel').style.display = 'none';
-                                                                                                                                        return;
-                                                                                                                                      }
-
-                                                                                                                                      routes.forEach((route, idx) => {
-                                                                                                                                        const div = document.createElement('div');
-                                                                                                                                        div.className = 'route-option' + (idx === 0 ? ' active' : '');
-                                                                                                                                        div.innerHTML = `Route ${idx + 1}: ${(route.distance / 1000).toFixed(1)} km • ${(route.duration / 60).toFixed(0)} min`;
-                                                                                                                                        div.addEventListener('click', () => selectRoute(idx, routes));
-                                                                                                                                        panel.appendChild(div);
-                                                                                                                                      });
-
-                                                                                                                                      selectRoute(0, routes);
-                                                                                                                                    }
-
-                                                                                                                                    // Highlight selected route and update guidance panel
-                                                                                                                                    function selectRoute(index, routes) {
-                                                                                                                                      routeLayers.forEach((layer, i) => {
-                                                                                                                                        if (layer.setStyle) {
-                                                                                                                                          layer.setStyle({
-                                                                                                                                            color: i === index ? '#007bff' : '#888',
-                                                                                                                                            weight: i === index ? 6 : 3,
-                                                                                                                                            opacity: i === index ? 0.9 : 0.5
-                                                                                                                                          });
-                                                                                                                                        }
-                                                                                                                                      });
-
-                                                                                                                                      document.querySelectorAll('.route-option').forEach((opt, i) => {
-                                                                                                                                        opt.classList.toggle('active', i === index);
-                                                                                                                                      });
-
-                                                                                                                                      showGuidance(routes[index]);
-                                                                                                                                    }
-
-                                                                  let liveStepWatcherId = null;
-                                                                  let currentStepIndex = 0;
-                                                                  let stepCoords = [];
-
-
-
-                      // Helper: choose an icon based on maneuver type/modifier
-                  function getStepIcon(step) {
-                    const type = step.maneuver.type;
-                    const modifier = (step.maneuver.modifier || '').toLowerCase();
-
-                    // Depart / Arrive
-                    if (type === 'depart') return '🚩';
-                    if (type === 'arrive') return '🏁';
-
-                    // Turns
-                    if (type === 'turn') {
-                      if (modifier.includes('slight left')) return '↖️';
-                      if (modifier.includes('left')) return '⬅️';
-                      if (modifier.includes('slight right')) return '↗️';
-                      if (modifier.includes('right')) return '➡️';
-                      if (modifier.includes('uturn')) return '↩️';
-                    }
-
-                    // Continue / Straight
-                    if (type === 'continue') return '⬆️';
-
-                    // Roundabouts
-                    if (type === 'roundabout') return '🌀';
-
-                    // Merge / Fork
-                    if (type === 'merge') return '🔀';
-                    if (type === 'fork') {
-                      if (modifier.includes('left')) return '⤴️';
-                      if (modifier.includes('right')) return '⤵️';
-                      return '⤴️';
-                    }
-
-                    // Default fallback
-                    return '➡️';
+      /* -------------------- Section 1: Map setup & globals -------------------- */
+      const mapboxToken = 'pk.eyJ1IjoiYnJuanJ1IiwiYSI6ImNtZmhkMm9qYTAwaTQybHNsYW9uaGpkb3YifQ.LeKVLypz4zj6uyk4s79iUA';
+      const styleCache = {};
+
+      function getMapboxLayer(styleId) {
+          if (!styleCache[styleId]) {
+              styleCache[styleId] = L.tileLayer(
+                  `https://api.mapbox.com/styles/v1/${styleId}/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`,
+                  {
+                      tileSize: 512,
+                      zoomOffset: -1,
+                      maxNativeZoom: 19,
+                      maxZoom: 22,
+                      attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> © <a href="https://www.mapbox.com/">Mapbox</a>'
                   }
+              );
+          }
+          return styleCache[styleId];
+      }
 
-                  // Show turn-by-turn guidance with rich icons
-                  function showGuidance(route) {
-                    const panel = document.getElementById('guidance-panel');
-                    const summaryEl = document.getElementById('guidance-summary');
-                    const stepsEl = document.getElementById('guidance-steps');
+      const mapboxStyles = {
+          "Streets": getMapboxLayer('mapbox/streets-v11'),
+          "Outdoors": getMapboxLayer('mapbox/outdoors-v11'),
+          "Light": getMapboxLayer('mapbox/light-v10'),
+          "Dark": getMapboxLayer('mapbox/dark-v10'),
+          "Satellite": getMapboxLayer('mapbox/satellite-v9'),
+          "Satellite + Streets": getMapboxLayer('mapbox/satellite-streets-v11'),
+          "Navigation Day": getMapboxLayer('mapbox/navigation-day-v1'),
+          "Navigation Night": getMapboxLayer('mapbox/navigation-night-v1')
+      };
 
-                    if (!panel || !summaryEl || !stepsEl) return;
+      const map = L.map('map', {
+          maxZoom: 22,
+          zoomControl: true,
+          layers: [mapboxStyles["Streets"]]
+      }).setView([-1.3, 36.8], 17);
 
-                    panel.style.display = 'block';
-                    const km = (route.distance / 1000).toFixed(1);
-                    const mins = Math.round(route.duration / 60);
-                    summaryEl.textContent = `${km} km • ${mins} min`;
-                    stepsEl.innerHTML = '';
+      /* --- Compass Control (static north arrow, zoom responsive) --- */
+      const compassControl = L.control({ position: 'topleft' });
+      compassControl.onAdd = function(map) {
+          const div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+          div.style.width = '34px';
+          div.style.height = '34px';
+          div.style.background = '#fff';
+          div.style.display = 'flex';
+          div.style.alignItems = 'center';
+          div.style.justifyContent = 'center';
+          div.style.cursor = 'pointer';
+          div.title = 'Reset to North';
+          div.onmouseenter = () => div.style.background = '#eee';
+          div.onmouseleave = () => div.style.background = '#fff';
+          div.tabIndex = 0;
+          div.onkeypress = (e) => {
+              if (e.key === 'Enter') div.onclick();
+          };
 
-                    stepCoords = [];
-                    route.legs[0].steps.forEach((step, i) => {
-                      const el = document.createElement('div');
-                      el.className = 'step';
+          // Local static file reference
+          div.innerHTML = '<img src="{% static "parking/img/compass-svgrepo-com.svg" %}" style="width:26px;height:26px;display:block;">';
 
-                      // Store raw instruction for voice guidance
-                      el.dataset.instruction = step.maneuver.instruction;
+          div.onclick = () => {
+              // Optional: re-center on user location if available
+              if (typeof userLat !== 'undefined' && typeof userLon !== 'undefined') {
+                  map.setView([userLat, userLon], map.getZoom());
+              } else {
+                  map.setView(map.getCenter(), map.getZoom());
+              }
+          };
 
-                      // Get icon for this step
-                      const icon = getStepIcon(step);
+          return div;
+      };
 
-                      // Display icon + instruction in panel
-                      el.innerHTML = `${icon} ${step.maneuver.instruction} <br>
-                        <small>${(step.distance / 1000).toFixed(2)} km, ${(step.duration / 60).toFixed(1)} min</small>`;
+      // Add compass first so it appears before layer switch
+      compassControl.addTo(map);
 
-                      stepCoords.push(step.maneuver.location);
+      // Show only after zoom level 16+
+      map.on('zoomend', function() {
+          const compassEl = document.querySelector('.leaflet-control img[src*="compass"]')?.closest('.leaflet-control');
+          if (map.getZoom() >= 16) {
+              if (compassEl) compassEl.style.display = 'flex';
+          } else {
+              if (compassEl) compassEl.style.display = 'none';
+          }
+      });
 
-                      el.addEventListener('click', () => {
-                        stepsEl.querySelectorAll('.step').forEach(s => s.classList.remove('current-step'));
-                        el.classList.add('current-step');
-                        currentStepIndex = i;
-                        const [lon, lat] = step.maneuver.location;
-                        map.setView([lat, lon], 18, { animate: true });
+      L.control.layers(mapboxStyles, null, { position: 'topleft' }).addTo(map);
 
-                        // Speak clean instruction when clicked
-                        speakInstruction(el.dataset.instruction);
-                      });
+      const currentBookingId = {{ current_booking_id|default:"null" }};
+      let expiryTsMs = {{ expiry_ts_ms|default:"null" }};
+      const graceTsMs = {{ grace_ts_ms|default:"null" }};
 
-                      stepsEl.appendChild(el);
-                    });
+      let geojsonLayer = null;
+      let vicinityMode = false;
+      let vicinityLat = null;
+      let vicinityLon = null;
+      let vicinityRadius = 300;
+      let didFitBounds = false;
+      let vicinityMarker = null;
+      let vicinityCircle = null;
 
-                    currentStepIndex = 0;
-                    const firstStep = stepsEl.querySelector('.step');
-                    if (firstStep) {
-                      firstStep.classList.add('current-step');
+      function showLoading(msg) {
+          const overlay = document.getElementById('loading-overlay');
+          if (msg) overlay.querySelector('.loading-text').textContent = msg;
+          overlay.style.display = 'flex';
+      }
 
-                      // ✅ Speak the first instruction immediately (clean text, no icon)
-                      speakInstruction(firstStep.dataset.instruction);
-                    }
+      function hideLoading() {
+          document.getElementById('loading-overlay').style.display = 'none';
+      }
 
-                    startLiveStepTracking();
+      let bookedSlotLatLng = null;
+      let arrivalWatcherId = null;
+      const ARRIVAL_RADIUS_M = 30;
+      const ARRIVAL_POLL_MS = 15000;
+
+      let bookedSlotLat = null;
+      let bookedSlotLon = null;
+
+      function distanceMeters(lat1, lon1, lat2, lon2) {
+          const R = 6371000;
+          const toRad = x => x * Math.PI / 180;
+          const dLat = toRad(lat2 - lat1);
+          const dLon = toRad(lon2 - lon1);
+          const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon/2)**2;
+          const c = 2 * Math.asin(Math.sqrt(a));
+          return R * c;
+      }
+
+      /* -------------------- Section 2: Slot loading -------------------- */
+      let hasZoomedToBooking = false;
+
+      function getFeatureCentroidLatLon(feature, layer) {
+          try {
+              if (feature?.geometry?.type === 'Point') {
+                  return { lat: feature.geometry.coordinates[1], lon: feature.geometry.coordinates[0] };
+              }
+              const c = turf.centroid(feature);
+              if (c?.geometry?.coordinates?.length === 2) {
+                  return { lat: c.geometry.coordinates[1], lon: c.geometry.coordinates[0] };
+              }
+          } catch (e) { console.warn('Centroid via turf failed', e); }
+          if (layer?.getBounds && layer.getBounds().isValid()) {
+              const center = layer.getBounds().getCenter();
+              return { lat: center.lat, lon: center.lng };
+          }
+          return null;
+      }
+
+      async function markArrived() {
+          try {
+              const res = await fetch('/mark-arrived/', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+                  body: JSON.stringify({ booking_id: currentBookingId })
+              });
+              const data = await res.json().catch(() => ({}));
+              if (!res.ok || data.ok === false) throw new Error(data.error || 'Failed to mark arrival');
+
+              // Stop any grace period countdown
+              if (arrivalWatcherId) {
+                  clearInterval(arrivalWatcherId);
+                  arrivalWatcherId = null;
+              }
+
+              // Disable the button
+              const btn = document.getElementById('arrived-btn');
+              if (btn) {
+                  btn.disabled = true;
+                  btn.textContent = 'Arrival confirmed';
+                  btn.style.opacity = '0.8';
+                  btn.style.cursor = 'default';
+              }
+
+              // Hide grace countdown
+              document.getElementById('grace-countdown').style.display = 'none';
+
+              // ✅ Instantly update the badge colour and text
+              setBookingStatusBadge('arrived');
+
+              alert('Arrival confirmed. Enjoy your parking!');
+          } catch (e) {
+              console.error(e);
+              alert('Could not confirm arrival. Please try again.');
+          }
+      }
+
+      function maybeStartArrivalWatcher() {
+          if (!currentBookingId || !bookedSlotLatLng) return;
+          if (arrivalWatcherId) return;
+          arrivalWatcherId = setInterval(() => {
+              if (!navigator.geolocation) return;
+              navigator.geolocation.getCurrentPosition((pos) => {
+                  const lat = pos.coords.latitude;
+                  const lon = pos.coords.longitude;
+                  const accuracy = pos.coords.accuracy || 9999;
+                  if (accuracy > 150) return;
+                  const dist = distanceMeters(lat, lon, bookedSlotLatLng.lat, bookedSlotLatLng.lon);
+                  if (dist <= ARRIVAL_RADIUS_M) { markArrived(); }
+              }, () => {}, { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 });
+          }, ARRIVAL_POLL_MS);
+      }
+
+      let graceCountdownId = null;
+      function startGraceCountdown(graceMs) {
+          const graceBox = document.getElementById('grace-countdown');
+          if (!graceMs || bookedSlotLatLng === null) { graceBox.style.display = 'none'; return; }
+          graceBox.style.display = 'block';
+          function updateGrace() {
+              const now = Date.now();
+              const diff = graceMs - now;
+              if (diff <= 0 || arrivalWatcherId === null) { graceBox.style.display = 'none'; return; }
+              const totalSeconds = Math.floor(diff / 1000);
+              const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+              const seconds = String(totalSeconds % 60).padStart(2, '0');
+              document.getElementById('grace-minutes').textContent = minutes;
+              document.getElementById('grace-seconds').textContent = seconds;
+              graceCountdownId = setTimeout(updateGrace, 500);
+          }
+          if (graceCountdownId) clearTimeout(graceCountdownId);
+          updateGrace();
+      }
+
+      function loadParkingLots(url) {
+          if (!url) {
+              if (vicinityMode && vicinityLat && vicinityLon) {
+                  url = `/api/parkinglots/?lat=${vicinityLat}&lng=${vicinityLon}&radius=${vicinityRadius}&t=${Date.now()}`;
+              } else {
+                  url = `/api/parkinglots/?t=${Date.now()}`;
+              }
+          }
+
+          fetch(url)
+              .then(res => res.json())
+              .then(data => {
+                  if (geojsonLayer) map.removeLayer(geojsonLayer);
+
+                  geojsonLayer = L.geoJSON(data, {
+                      onEachFeature: function (feature, layer) {
+                          const props = feature.properties;
+                          let popupHtml = `<strong>Slot Number:</strong> ${props.slot_no}<br>`;
+
+                          // Only users can book
+                          if (feature.id === currentBookingId && "{{ role }}" === "user") {
+                              popupHtml += `<span style="color: #1976d2; font-weight:600;">Your booking</span>`;
+                          } else if (props.status !== 'occupied' && "{{ role }}" === "user") {
+                              popupHtml += `
+                                  <a href="/book/${feature.id}/">
+                                      <button style="margin-top: 10px; background: linear-gradient(135deg, #4CAF50, #388E3C);
+                                          color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer;">
+                                          Book Slot
+                                      </button>
+                                  </a>`;
+                          } else if (props.status === 'occupied') {
+                              popupHtml += `<span style="color: red;">Occupied</span>`;
+                          }
+
+                          layer.bindPopup(popupHtml);
+
+                          if (feature.id === currentBookingId && "{{ role }}" === "user") {
+                              try {
+                                  const center = getFeatureCentroidLatLon(feature, layer);
+                                  if (!hasZoomedToBooking && center) {
+                                      map.setView([center.lat, center.lon], 20);
+                                      didFitBounds = true;
+                                      hasZoomedToBooking = true;
+                                  }
+                                  if (center && (!bookedSlotLatLng ||
+                                      (bookedSlotLatLng.lat !== center.lat || bookedSlotLatLng.lon !== center.lon))) {
+                                      bookedSlotLatLng = center;
+                                      bookedSlotLat = center.lat;
+                                      bookedSlotLon = center.lon;
+
+                                      if (props.arrived) {
+                                          const btn = document.getElementById('arrived-btn');
+                                          if (btn) {
+                                              btn.disabled = true;
+                                              btn.textContent = 'Arrival confirmed';
+                                              btn.style.opacity = '0.8';
+                                              btn.style.cursor = 'default';
+                                          }
+                                          document.getElementById('grace-countdown').style.display = 'none';
+                                          if (arrivalWatcherId) { clearInterval(arrivalWatcherId); arrivalWatcherId = null; }
+                                      } else {
+                                          maybeStartArrivalWatcher();
+                                          startGraceCountdown(graceTsMs);
+                                      }
+
+                                      const navWrap = document.getElementById('navigate-wrapper');
+                                      if (navWrap) navWrap.style.display = 'block';
+                                  }
+                              } catch (e) {
+                                  console.warn('Could not determine booked slot coordinates', e);
+                              }
+                          }
+                      },
+                      style: function (feature) {
+                          const isUserSlot = feature.id === currentBookingId && "{{ role }}" === "user";
+                          const status = feature.properties.status;
+                          return {
+                              color: isUserSlot ? '#0000FF' : '#0077ff',
+                              weight: 3, opacity: 1, fillOpacity: 0.6,
+                              fillColor: status === 'occupied' ? '#ff5555' : '#55ff55'
+                          };
+                      }
+                  }).addTo(map);
+
+                  if (!didFitBounds && geojsonLayer.getBounds().isValid()) {
+                      map.fitBounds(geojsonLayer.getBounds(), { padding: [20, 20], maxZoom: 20 });
+                      didFitBounds = true;
                   }
+              })
+              .catch(e => console.error('Failed to load parking lots', e))
+              .finally(() => hideLoading());
+      }
 
-            // ✅ Modified to use nav watcher’s coords instead of starting a new watchPosition
-            function startLiveStepTracking() {
-              stopLiveStepTracking(); // clear any old interval
+      loadParkingLots();
+      setInterval(() => loadParkingLots(), 15000);
+      maybeStartArrivalWatcher();
 
-              liveStepWatcherId = setInterval(() => {
-                if (!stepCoords.length || userLat == null || userLon == null) return;
+      /* -------------------- Vicinity button (users only) -------------------- */
+      document.getElementById('my-vicinity-btn')?.addEventListener('click', () => {
+          if ("{{ role }}" !== "user") return; // guard
+          if (!navigator.geolocation) { alert('Geolocation is not supported by your browser.'); return; }
+          showLoading('Getting parking spaces ...');
+          navigator.geolocation.getCurrentPosition((pos) => {
+              const userLat = pos.coords.latitude;
+              const userLon = pos.coords.longitude;
+              const accuracy = pos.coords.accuracy;
+              vicinityMode = true;
+              vicinityLat = userLat;
+              vicinityLon = userLon;
+              vicinityRadius = Math.max(300, accuracy);
+              didFitBounds = false;
+              if (vicinityMarker) map.removeLayer(vicinityMarker);
+              if (vicinityCircle) map.removeLayer(vicinityCircle);
+              vicinityMarker = L.marker([userLat, userLon]).addTo(map)
+                  .bindPopup(`You are here<br>Accuracy: ±${Math.round(accuracy)} m`).openPopup();
+              vicinityCircle = L.circle([userLat, userLon], {
+                  radius: accuracy, color: '#136aec', fillColor: '#136aec', fillOpacity: 0.15
+              }).addTo(map);
+              setTimeout(() => { map.setView([userLat, userLon], 18); }, 300);
+              document.getElementById('clear-layer-wrapper').style.display = 'block';
+              loadParkingLots();
+          }, () => { hideLoading(); alert('Unable to retrieve your location.'); },
+          { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+      });
 
-                const [stepLon, stepLat] = stepCoords[currentStepIndex];
-                const dist = distanceMeters(userLat, userLon, stepLat, stepLon);
+      /* -------------------- Clear Layer -------------------- */
+      document.getElementById('clear-layer-btn')?.addEventListener('click', () => {
+          if ("{{ role }}" !== "user") return; // guard
+          vicinityMode = false; vicinityLat = null; vicinityLon = null; didFitBounds = false;
+          if (vicinityMarker) { map.removeLayer(vicinityMarker); vicinityMarker = null; }
+          if (vicinityCircle) { map.removeLayer(vicinityCircle); vicinityCircle = null; }
+          loadParkingLots();
+          document.getElementById('clear-layer-wrapper').style.display = 'none';
+      });
 
-                if (dist < 20 && currentStepIndex < stepCoords.length - 1) {
+      /* -------------------- Search (users only) -------------------- */
+      document.getElementById('search-btn')?.addEventListener('click', () => {
+          if ("{{ role }}" !== "user") return; // guard
+          const query = document.getElementById('location-search').value.trim();
+          if (!query) return;
+          vicinityMode = false; vicinityLat = null; vicinityLon = null; didFitBounds = true;
+          showLoading('Searching location ...');
+          fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`)
+              .then(res => res.json())
+              .then(data => {
+                  if (data.length > 0) {
+                      const lat = parseFloat(data[0].lat);
+                      const lon = parseFloat(data[0].lon);
+                      map.setView([lat, lon], 19);
+                      loadParkingLots(`/api/parkinglots/?lat=${lat}&lng=${lon}&radius=500`);
+                  } else { alert('Location not found.'); }
+              })
+              .catch(() => alert('Error searching location.'))
+              .finally(() => hideLoading());
+      });
+
+      document.getElementById('location-search')?.addEventListener('keypress', (e) => {
+          if ("{{ role }}" !== "user") return; // guard
+          if (e.key === 'Enter') { document.getElementById('search-btn').click(); }
+      });
+
+      /* -------------------- Navigate button (multi-route) -------------------- */
+
+      // =======================
+      // Global variables
+      // =======================
+      let userLat = null;
+      let userLon = null;
+      let currentProfile = 'mapbox/driving-traffic';
+      let currentRoutes = [];
+      let routeLayers = [];
+      let markerLayers = [];
+      let navWatchId = null; // NEW: ID for continuous location watcher
+      let startMarker = null; // NEW: Keep reference to start marker so we can move it
+
+      // =======================
+      // Navigate button click
+      // =======================
+      document.getElementById('navigate-btn')?.addEventListener('click', () => {
+          if ("{{ role }}" !== "user") return;
+          if (bookedSlotLat == null || bookedSlotLon == null) {
+              alert('Destination not set yet. Please confirm a booking first.');
+              return;
+          }
+          if (!navigator.geolocation) {
+              alert('Geolocation is not supported by your browser.');
+              return;
+          }
+          document.getElementById('nav-mode-container').style.display = 'block';
+
+          // Track whether we should keep the camera following the user
+          let followUser = true;
+          let dragTimeout;
+
+          // Stop following if the user manually drags the map
+          map.on('dragstart', () => {
+              followUser = false;
+              clearTimeout(dragTimeout);
+
+              // Auto‑resume after 10 seconds of no dragging
+              dragTimeout = setTimeout(() => {
+                  followUser = true;
+              }, 10000);
+          });
+
+          if (navWatchId === null) {
+              navWatchId = navigator.geolocation.watchPosition(
+                  (pos) => {
+                      userLat = pos.coords.latitude;
+                      userLon = pos.coords.longitude;
+
+                      // Move existing marker or create it if missing
+                      if (startMarker) {
+                          startMarker.setLatLng([userLat, userLon]);
+                      }
+
+                      // Smooth camera follow if enabled
+                      if (followUser) {
+                          map.flyTo([userLat, userLon], 17, { animate: true, duration: 1 });
+                      }
+
+                      // Draw route if we don't have one yet
+                      if (!currentRoutes.length) {
+                          changeMode('mapbox/driving-traffic');
+                      }
+                  },
+                  (err) => {
+                      alert('Unable to get your current location.');
+                      console.error(err);
+                  },
+                  { enableHighAccuracy: true, maximumAge: 0 }
+              );
+          } else {
+              // Already tracking — just draw the route
+              changeMode('mapbox/driving-traffic');
+          }
+      });
+
+      // =======================
+      // Mode change
+      // =======================
+      function changeMode(profile, clickedBtn = null) {
+          if ("{{ role }}" !== "user") return;
+
+          // Remove 'active' from all mode buttons
+          document.querySelectorAll('.travel-mode-btn').forEach(btn => {
+              btn.classList.remove('active');
+          });
+
+          // Highlight clicked button or match profile
+          if (clickedBtn) {
+              clickedBtn.classList.add('active');
+          } else {
+              const match = document.querySelector(
+                  `.travel-mode-btn[onclick*="${profile}"]`
+              );
+              if (match) match.classList.add('active');
+          }
+
+          currentProfile = profile;
+          getRoutes(profile);
+      }
+
+      // =======================
+      // Get routes from Mapbox
+      // =======================
+      async function getRoutes(profile) {
+          if ("{{ role }}" !== "user") return;
+          if (userLat == null || userLon == null) {
+              document.getElementById('routes-panel').innerHTML = 'Waiting for location...';
+              return;
+          }
+
+          // Clear old routes
+          routeLayers.forEach(l => map.removeLayer(l));
+          routeLayers = [];
+
+          document.getElementById('routes-panel').innerHTML = 'Loading routes...';
+
+          const url = `https://api.mapbox.com/directions/v5/${profile}/${userLon},${userLat};${bookedSlotLon},${bookedSlotLat}?alternatives=true&overview=full&geometries=geojson&steps=true&access_token=${mapboxToken}`;
+          const res = await fetch(url);
+          const data = await res.json();
+
+          currentRoutes = data.routes;
+          drawRoutes(currentRoutes);
+
+          // Clear old markers except startMarker (we'll reuse it)
+          markerLayers.forEach(m => {
+              if (m !== startMarker) map.removeLayer(m);
+          });
+          markerLayers = startMarker ? [startMarker] : [];
+
+          // Create start marker if it doesn't exist yet
+          if (!startMarker) {
+              startMarker = L.marker([userLat, userLon], {
+                  icon: L.icon({
+                      iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+                      shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+                      iconSize: [25, 41],
+                      iconAnchor: [12, 41],
+                      popupAnchor: [1, -34]
+                  })
+              }).bindPopup('Your Location').addTo(map);
+              markerLayers.push(startMarker);
+          }
+
+          // Always recreate destination marker
+          const destMarker = L.marker([bookedSlotLat, bookedSlotLon], {
+              icon: L.icon({
+                  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+                  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+                  iconSize: [25, 41],
+                  iconAnchor: [12, 41],
+                  popupAnchor: [1, -34]
+              })
+          }).bindPopup('Destination Slot').addTo(map);
+
+          markerLayers.push(destMarker);
+
+          if (!currentRoutes || currentRoutes.length === 0) {
+              document.getElementById('routes-panel').innerHTML =
+                  '<div style="color:#aaa; font-size:0.9rem;">No routes found for this mode.</div>';
+              document.getElementById('guidance-panel').style.display = 'none';
+              return;
+          }
+
+          populateRouteList(currentRoutes);
+      }
+
+      // =======================
+      // Stop navigation (optional)
+      // =======================
+      function stopNavigation() {
+          if (navWatchId !== null) {
+              navigator.geolocation.clearWatch(navWatchId);
+              navWatchId = null;
+          }
+          startMarker = null;
+          currentRoutes = [];
+      }
+
+      // Draw all routes on the map
+      function drawRoutes(routes) {
+          routeLayers.forEach(l => map.removeLayer(l));
+          routeLayers = [];
+          routes.forEach((route, idx) => {
+              const isPrimary = idx === 0;
+              const color = isPrimary ? '#007bff' : '#888';
+              const weight = isPrimary ? 6 : 3;
+              const opacity = isPrimary ? 0.9 : 0.5;
+              const layer = L.geoJSON(route.geometry, { style: { color, weight, opacity } }).addTo(map);
+              routeLayers.push(layer);
+          });
+          const allCoords = routes.flatMap(r => r.geometry.coordinates.map(c => [c[1], c[0]]));
+          map.fitBounds(L.latLngBounds(allCoords));
+      }
+
+      // Populate the route list in the sidebar
+      function populateRouteList(routes) {
+          const panel = document.getElementById('routes-panel');
+          panel.innerHTML = '';
+
+          if (!routes || routes.length === 0) {
+              panel.innerHTML = '<div style="color:#aaa; font-size:0.9rem;">No routes available.</div>';
+              document.getElementById('guidance-panel').style.display = 'none';
+              return;
+          }
+
+          routes.forEach((route, idx) => {
+              const div = document.createElement('div');
+              div.className = 'route-option' + (idx === 0 ? ' active' : '');
+              div.innerHTML = `Route ${idx + 1}: ${(route.distance / 1000).toFixed(1)} km • ${(route.duration / 60).toFixed(0)} min`;
+              div.addEventListener('click', () => selectRoute(idx, routes));
+              panel.appendChild(div);
+          });
+
+          selectRoute(0, routes);
+      }
+
+      // Highlight selected route and update guidance panel
+      function selectRoute(index, routes) {
+          routeLayers.forEach((layer, i) => {
+              if (layer.setStyle) {
+                  layer.setStyle({
+                      color: i === index ? '#007bff' : '#888',
+                      weight: i === index ? 6 : 3,
+                      opacity: i === index ? 0.9 : 0.5
+                  });
+              }
+          });
+
+          document.querySelectorAll('.route-option').forEach((opt, i) => {
+              opt.classList.toggle('active', i === index);
+          });
+
+          showGuidance(routes[index]);
+      }
+
+      let liveStepWatcherId = null;
+      let currentStepIndex = 0;
+      let stepCoords = [];
+
+      // Helper: choose an icon based on maneuver type/modifier
+      function getStepIcon(step) {
+          const type = step.maneuver.type;
+          const modifier = (step.maneuver.modifier || '').toLowerCase();
+
+          // Depart / Arrive
+          if (type === 'depart') return '🚩';
+          if (type === 'arrive') return '🏁';
+
+          // Turns
+          if (type === 'turn') {
+              if (modifier.includes('slight left')) return '↖️';
+              if (modifier.includes('left')) return '⬅️';
+              if (modifier.includes('slight right')) return '↗️';
+              if (modifier.includes('right')) return '➡️';
+              if (modifier.includes('uturn')) return '↩️';
+          }
+
+          // Continue / Straight
+          if (type === 'continue') return '⬆️';
+
+          // Roundabouts
+          if (type === 'roundabout') return '🌀';
+
+          // Merge / Fork
+          if (type === 'merge') return '🔀';
+          if (type === 'fork') {
+              if (modifier.includes('left')) return '⤴️';
+              if (modifier.includes('right')) return '⤵️';
+              return '⤴️';
+          }
+
+          // Default fallback
+          return '➡️';
+      }
+
+      // Show turn-by-turn guidance with rich icons
+      function showGuidance(route) {
+          const panel = document.getElementById('guidance-panel');
+          const summaryEl = document.getElementById('guidance-summary');
+          const stepsEl = document.getElementById('guidance-steps');
+
+          if (!panel || !summaryEl || !stepsEl) return;
+
+          panel.style.display = 'block';
+          const km = (route.distance / 1000).toFixed(1);
+          const mins = Math.round(route.duration / 60);
+          summaryEl.textContent = `${km} km • ${mins} min`;
+          stepsEl.innerHTML = '';
+
+          stepCoords = [];
+          route.legs[0].steps.forEach((step, i) => {
+              const el = document.createElement('div');
+              el.className = 'step';
+
+              // Store raw instruction for voice guidance
+              el.dataset.instruction = step.maneuver.instruction;
+
+              // Get icon for this step
+              const icon = getStepIcon(step);
+
+              // Display icon + instruction in panel
+              el.innerHTML = `${icon} ${step.maneuver.instruction} <br>
+                  <small>${(step.distance / 1000).toFixed(2)} km, ${(step.duration / 60).toFixed(1)} min</small>`;
+
+              stepCoords.push(step.maneuver.location);
+
+              el.addEventListener('click', () => {
+                  stepsEl.querySelectorAll('.step').forEach(s => s.classList.remove('current-step'));
+                  el.classList.add('current-step');
+                  currentStepIndex = i;
+                  const [lon, lat] = step.maneuver.location;
+                  map.setView([lat, lon], 18, { animate: true });
+
+                  // Speak clean instruction when clicked
+                  speakInstruction(el.dataset.instruction);
+              });
+
+              stepsEl.appendChild(el);
+          });
+
+          currentStepIndex = 0;
+          const firstStep = stepsEl.querySelector('.step');
+          if (firstStep) {
+              firstStep.classList.add('current-step');
+
+              // ✅ Speak the first instruction immediately (clean text, no icon)
+              speakInstruction(firstStep.dataset.instruction);
+          }
+
+          startLiveStepTracking();
+      }
+
+      // ✅ Modified to use nav watcher’s coords instead of starting a new watchPosition
+      function startLiveStepTracking() {
+          stopLiveStepTracking(); // clear any old interval
+
+          liveStepWatcherId = setInterval(() => {
+              if (!stepCoords.length || userLat == null || userLon == null) return;
+
+              const [stepLon, stepLat] = stepCoords[currentStepIndex];
+              const dist = distanceMeters(userLat, userLon, stepLat, stepLon);
+
+              if (dist < 20 && currentStepIndex < stepCoords.length - 1) {
                   currentStepIndex++;
                   updateStepHighlight();
-                } else if (dist < 20 && currentStepIndex === stepCoords.length - 1) {
+              } else if (dist < 20 && currentStepIndex === stepCoords.length - 1) {
                   stopLiveStepTracking();
-                }
-              }, 2000); // check every 2 seconds
-            }
-
-            function stopLiveStepTracking() {
-              if (liveStepWatcherId) {
-                clearInterval(liveStepWatcherId);
-                liveStepWatcherId = null;
               }
-            }
+          }, 2000); // check every 2 seconds
+      }
 
-            function updateStepHighlight() {
-              const stepsEl = document.getElementById('guidance-steps');
-              if (!stepsEl) return;
+      function stopLiveStepTracking() {
+          if (liveStepWatcherId) {
+              clearInterval(liveStepWatcherId);
+              liveStepWatcherId = null;
+          }
+      }
 
-              stepsEl.querySelectorAll('.step').forEach((s, i) => {
-                const isCurrent = i === currentStepIndex;
-                s.classList.toggle('current-step', isCurrent);
+      function updateStepHighlight() {
+          const stepsEl = document.getElementById('guidance-steps');
+          if (!stepsEl) return;
 
-                if (isCurrent) {
+          stepsEl.querySelectorAll('.step').forEach((s, i) => {
+              const isCurrent = i === currentStepIndex;
+              s.classList.toggle('current-step', isCurrent);
+
+              if (isCurrent) {
                   // Smooth scroll to keep current step in view
                   s.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
                   // ✅ Speak the clean instruction from dataset (fallback to text if missing)
                   const instruction = s.dataset.instruction || s.innerText.split('\n')[0];
                   speakInstruction(instruction);
-                }
-              });
-            }
-
-            // Voice helper function
-            function speakInstruction(text) {
-              if ('speechSynthesis' in window) {
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'en-US'; // adjust if needed
-                utterance.rate = 1;       // normal speed
-                utterance.pitch = 1;      // normal pitch
-
-                // Stop any ongoing speech before starting a new one
-                speechSynthesis.cancel();
-                speechSynthesis.speak(utterance);
-              } else {
-                console.warn('Speech synthesis not supported in this browser.');
               }
-            }
+          });
+      }
 
+      // Voice helper function
+      function speakInstruction(text) {
+          if ('speechSynthesis' in window) {
+              const utterance = new SpeechSynthesisUtterance(text);
+              utterance.lang = 'en-US'; // adjust if needed
+              utterance.rate = 1;       // normal speed
+              utterance.pitch = 1;      // normal pitch
 
-                                                                  document.addEventListener('DOMContentLoaded', () => {
-                                                                    const toggleBtn = document.getElementById('toggle-guidance');
-                                                                    if (toggleBtn) {
-                                                                      toggleBtn.addEventListener('click', () => {
-                                                                        const panel = document.getElementById('guidance-panel');
-                                                                        panel.classList.toggle('collapsed');
-                                                                        toggleBtn.textContent = panel.classList.contains('collapsed') ? '+' : '−';
-                                                                      });
-                                                                    }
-                                                                  });
+              // Stop any ongoing speech before starting a new one
+              speechSynthesis.cancel();
+              speechSynthesis.speak(utterance);
+          } else {
+              console.warn('Speech synthesis not supported in this browser.');
+          }
+      }
 
-                                                                                                                                    /* -------------------- Section 6: Countdown & booking status -------------------- */
-                                                                                                                                    let countdownTimerId = null;
-                                                                                                                                    function startCountdown(expiryMs) {
-                                                                                                                                      const timerBox = document.getElementById('reservation-timer');
-                                                                                                                                      if (!expiryMs) { timerBox.style.display = 'none'; return; }
-                                                                                                                                      timerBox.style.display = 'block';
-                                                                                                                                      function update() {
-                                                                                                                                        const now = Date.now();
-                                                                                                                                        const diff = expiryMs - now;
-                                                                                                                                        if (diff <= 0) {
-                                                                                                                                          document.getElementById('timer-hours').textContent = '00';
-                                                                                                                                          document.getElementById('timer-minutes').textContent = '00';
-                                                                                                                                          document.getElementById('timer-seconds').textContent = '00';
-                                                                                                                                          window.location.href = "/reservation-over/";
-                                                                                                                                          return;
-                                                                                                                                        }
-                                                                                                                                        const totalSeconds = Math.floor(diff / 1000);
-                                                                                                                                        const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
-                                                                                                                                        const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
-                                                                                                                                        const seconds = String(totalSeconds % 60).padStart(2, '0');
-                                                                                                                                        document.getElementById('timer-hours').textContent = hours;
-                                                                                                                                        document.getElementById('timer-minutes').textContent = minutes;
-                                                                                                                                        document.getElementById('timer-seconds').textContent = seconds;
-                                                                                                                                        countdownTimerId = setTimeout(update, 500);
-                                                                                                                                      }
-                                                                                                                                      if (countdownTimerId) clearTimeout(countdownTimerId);
-                                                                                                                                      update();
-                                                                                                                                    }
+      document.addEventListener('DOMContentLoaded', () => {
+          const toggleBtn = document.getElementById('toggle-guidance');
+          if (toggleBtn) {
+              toggleBtn.addEventListener('click', () => {
+                  const panel = document.getElementById('guidance-panel');
+                  panel.classList.toggle('collapsed');
+                  toggleBtn.textContent = panel.classList.contains('collapsed') ? '+' : '−';
+              });
+          }
+      });
 
-                                                                                                                                    if ("{{ role }}" === "user") {
-                                                                                                                                      startCountdown(expiryTsMs);
-                                                                                                                                      if (!document.getElementById('arrived-btn')?.disabled) {
-                                                                                                                                        startGraceCountdown(graceTsMs);
-                                                                                                                                      }
-                                                                                                                                    }
+      /* -------------------- Section 6: Countdown & booking status -------------------- */
+      let countdownTimerId = null;
+      function startCountdown(expiryMs) {
+          const timerBox = document.getElementById('reservation-timer');
+          if (!expiryMs) { timerBox.style.display = 'none'; return; }
+          timerBox.style.display = 'block';
+          function update() {
+              const now = Date.now();
+              const diff = expiryMs - now;
+              if (diff <= 0) {
+                  document.getElementById('timer-hours').textContent = '00';
+                  document.getElementById('timer-minutes').textContent = '00';
+                  document.getElementById('timer-seconds').textContent = '00';
+                  window.location.href = "/reservation-over/";
+                  return;
+              }
+              const totalSeconds = Math.floor(diff / 1000);
+              const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+              const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+              const seconds = String(totalSeconds % 60).padStart(2, '0');
+              document.getElementById('timer-hours').textContent = hours;
+              document.getElementById('timer-minutes').textContent = minutes;
+              document.getElementById('timer-seconds').textContent = seconds;
+              countdownTimerId = setTimeout(update, 500);
+          }
+          if (countdownTimerId) clearTimeout(countdownTimerId);
+          update();
+      }
 
-                                                                                                                                    /* -------------------- Section 7: Arrived button -------------------- */
-                                                                                                                                    document.getElementById('arrived-btn')?.addEventListener('click', () => {
-                                                                                                                                      if ("{{ role }}" !== "user") return;
-                                                                                                                                      if (!currentBookingId) { alert('No active booking found.'); return; }
-                                                                                                                                      markArrived();
-                                                                                                                                      stopLiveStepTracking();
-                                                                                                                                    });
+      if ("{{ role }}" === "user") {
+          startCountdown(expiryTsMs);
+          if (!document.getElementById('arrived-btn')?.disabled) {
+              startGraceCountdown(graceTsMs);
+          }
+      }
 
-                                                                                                                                    /* -------------------- Section 8: CSRF helper -------------------- */
-                                                                                                                                    function getCookie(name) {
-                                                                                                                                      const value = `; ${document.cookie}`;
-                                                                                                                                      const parts = value.split(`; ${name}=`);
-                                                                                                                                      if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
-                                                                                                                                    }
-                                                                                                                                    const csrftoken = getCookie('csrftoken');
+      /* -------------------- Section 7: Arrived button -------------------- */
+      document.getElementById('arrived-btn')?.addEventListener('click', () => {
+          if ("{{ role }}" !== "user") return;
+          if (!currentBookingId) { alert('No active booking found.'); return; }
+          markArrived();
+          stopLiveStepTracking();
+      });
 
-                                                                                                                                    /* -------------------- Section 9: Cancel & Extend Reservation -------------------- */
-                                                                                                                                    document.getElementById('cancel-reservation')?.addEventListener('click', () => {
-                                                                                                                                      if ("{{ role }}" !== "user") return;
-                                                                                                                                      window.location.href = '/cancel-booking/';
-                                                                                                                                    });
-                                                                                                                                    document.getElementById('confirm-extend')?.addEventListener('click', async () => {
-                                                                                                                                      if ("{{ role }}" !== "user") return;
-                                                                                                                                      const hrs = parseInt(document.getElementById('ext-hours').value) || 0;
-                                                                                                                                      const mins = parseInt(document.getElementById('ext-minutes').value) || 0;
-                                                                                                                                      const secs = parseInt(document.getElementById('ext-seconds').value) || 0;
-                                                                                                                                      if (hrs === 0 && mins === 0 && secs === 0) return;
-                                                                                                                                      try {
-                                                                                                                                        const res = await fetch('/extend-booking/', {
-                                                                                                                                          method: 'POST',
-                                                                                                                                          headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
-                                                                                                                                          body: JSON.stringify({ hours: hrs, minutes: mins, seconds: secs })
-                                                                                                                                        });
-                                                                                                                                        if (!res.ok) throw new Error('Extend failed');
-                                                                                                                                        const data = await res.json();
-                                                                                                                                        if (data.expiry_ts_ms) {
-                                                                                                                                          expiryTsMs = data.expiry_ts_ms;
-                                                                                                                                          startCountdown(expiryTsMs);
-                                                                                                                                          document.getElementById('ext-hours').value = '';
-                                                                                                                                          document.getElementById('ext-minutes').value = '';
-                                                                                                                                          document.getElementById('ext-seconds').value = '';
-                                                                                                                                          if (bookedSlotLatLng && currentBookingId && !document.getElementById('arrived-btn')?.disabled) {
-                                                                                                                                            maybeStartArrivalWatcher();
-                                                                                                                                          }
-                                                                                                                                        }
-                                                                                                                                      } catch (e) {
-                                                                                                                                        console.error(e);
-                                                                                                                                        alert('Could not extend reservation. Please try again.');
-                                                                                                                                      }
-                                                                                                                                    });
+      /* -------------------- Section 8: CSRF helper -------------------- */
+      function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
+      }
+      const csrftoken = getCookie('csrftoken');
 
-                                                                                                                                   /* -------------------- Section 10: Staff/Admin Panel -------------------- */
-                                                                                                                              {% if role == 'admin' or role == 'staff' %}
-                                                                                                                            function renderStaffList(bookings) {
-                                                                                                                          const content = document.getElementById('staff-panel-content');
-                                                                                                                          if (!bookings || bookings.length === 0) {
-                                                                                                                            content.innerHTML = '<div style="color:#aaa;">No records found.</div>';
-                                                                                                                            return;
-                                                                                                                          }
-                                                                                                                          content.innerHTML = ''; // clear only when you have something to add
-                                                                                                                          bookings.forEach(b => {
-                                                                                                                            const item = document.createElement('div');
-                                                                                                                            item.style.padding = '4px';
-                                                                                                                            item.style.borderBottom = '1px solid #333';
-                                                                                                                            item.innerHTML = `<strong>${b.slot_no}</strong> (${b.road_name})<br>
-                                                                                                                                              ${b.username} - ${b.vehicle_type} - <span class="badge badge-${b.status}">${b.status}</span>`;
-                                                                                                                            content.appendChild(item);
-                                                                                                                          });
-                                                                                                                        }
+      /* -------------------- Section 9: Cancel & Extend Reservation -------------------- */
+      document.getElementById('cancel-reservation')?.addEventListener('click', () => {
+          if ("{{ role }}" !== "user") return;
+          window.location.href = '/cancel-booking/';
+      });
+
+      document.getElementById('confirm-extend')?.addEventListener('click', async () => {
+          if ("{{ role }}" !== "user") return;
+          const hrs = parseInt(document.getElementById('ext-hours').value) || 0;
+          const mins = parseInt(document.getElementById('ext-minutes').value) || 0;
+          const secs = parseInt(document.getElementById('ext-seconds').value) || 0;
+          if (hrs === 0 && mins === 0 && secs === 0) return;
+          try {
+              const res = await fetch('/extend-booking/', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+                  body: JSON.stringify({ hours: hrs, minutes: mins, seconds: secs })
+              });
+              if (!res.ok) throw new Error('Extend failed');
+              const data = await res.json();
+              if (data.expiry_ts_ms) {
+                  expiryTsMs = data.expiry_ts_ms;
+                  startCountdown(expiryTsMs);
+                  document.getElementById('ext-hours').value = '';
+                  document.getElementById('ext-minutes').value = '';
+                  document.getElementById('ext-seconds').value = '';
+                  if (bookedSlotLatLng && currentBookingId && !document.getElementById('arrived-btn')?.disabled) {
+                      maybeStartArrivalWatcher();
+                  }
+              }
+          } catch (e) {
+              console.error(e);
+              alert('Could not extend reservation. Please try again.');
+          }
+      });
+
+      /* -------------------- Section 10: Staff/Admin Panel -------------------- */
+      {% if role == 'admin' or role == 'staff' %}
+      function renderStaffList(bookings) {
+          const content = document.getElementById('staff-panel-content');
+          if (!bookings || bookings.length === 0) {
+              content.innerHTML = '<div style="color:#aaa;">No records found.</div>';
+              return;
+          }
+          content.innerHTML = ''; // clear only when you have something to add
+          bookings.forEach(b => {
+              const item = document.createElement('div');
+              item.style.padding = '4px';
+              item.style.borderBottom = '1px solid #333';
+              item.innerHTML = `<strong>${b.slot_no}</strong> (${b.road_name})<br>
+                                ${b.username} - ${b.vehicle_type} - <span class="badge badge-${b.status}">${b.status}</span>`;
+              content.appendChild(item);
+          });
+      }
+
       // Show Active Parking
       document.getElementById('show-active')?.addEventListener('click', () => {
           document.getElementById('dashboard-container').style.display = 'none';
@@ -1892,71 +1942,70 @@
               });
       });
 
-                                                                                                                              // Close staff panel
-                                                                                                                              document.getElementById('close-staff-panel')?.addEventListener('click', () => {
-                                                                                                                                document.getElementById('staff-panel').style.display = 'none';
-                                                                                                                                document.getElementById('staff-panel-content').innerHTML = '';
-                                                                                                                              });
+      // Close staff panel
+      document.getElementById('close-staff-panel')?.addEventListener('click', () => {
+          document.getElementById('staff-panel').style.display = 'none';
+          document.getElementById('staff-panel-content').innerHTML = '';
+      });
 
-                                                                                                                              {% if role == 'admin' %}
-                                                                                                                              // Add Staff
-                                                                                                                              document.getElementById('add-staff-btn')?.addEventListener('click', () => {
-                                                                                                                                const username = document.getElementById('staff-username').value.trim();
-                                                                                                                                const password = document.getElementById('staff-password').value.trim();
-                                                                                                                                if (!username) {
-                                                                                                                                  alert('Username is required');
-                                                                                                                                  return;
-                                                                                                                                }
-                                                                                                                                fetch('/api/staff/add/', {
-                                                                                                                                  method: 'POST',
-                                                                                                                                  headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
-                                                                                                                                  body: JSON.stringify({ username, password })
-                                                                                                                                })
-                                                                                                                                .then(res => res.json())
-                                                                                                                                .then(data => {
-                                                                                                                                  if (data.ok) {
-                                                                                                                                    alert(data.message);
-                                                                                                                                    document.getElementById('staff-username').value = '';
-                                                                                                                                    document.getElementById('staff-password').value = '';
-                                                                                                                                    // Refresh CSRF cookie to avoid logout 403
-                                                                                                                                    fetch('/refresh-csrf/', { credentials: 'same-origin' });
-                                                                                                                                  } else {
-                                                                                                                                    alert(data.error || 'Failed to add staff');
-                                                                                                                                  }
-                                                                                                                                });
-                                                                                                                              });
-                                                                                                                              {% endif %}
-                                                                                                                              {% endif %}
+      {% if role == 'admin' %}
+      // Add Staff
+      document.getElementById('add-staff-btn')?.addEventListener('click', () => {
+          const username = document.getElementById('staff-username').value.trim();
+          const password = document.getElementById('staff-password').value.trim();
+          if (!username) {
+              alert('Username is required');
+              return;
+          }
+          fetch('/api/staff/add/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+              body: JSON.stringify({ username, password })
+          })
+          .then(res => res.json())
+          .then(data => {
+              if (data.ok) {
+                  alert(data.message);
+                  document.getElementById('staff-username').value = '';
+                  document.getElementById('staff-password').value = '';
+                  // Refresh CSRF cookie to avoid logout 403
+                  fetch('/refresh-csrf/', { credentials: 'same-origin' });
+              } else {
+                  alert(data.error || 'Failed to add staff');
+              }
+          });
+      });
+      {% endif %}
+      {% endif %}
 
+      /* -------------------- Section 11: Booking Status Badge -------------------- */
+      function setBookingStatusBadge(status) {
+          const el = document.getElementById('booking-status');
+          if (!el) return;
+          el.className = 'badge';
+          el.textContent = status.replace('_', ' ');
+          const mapping = {
+              'active': 'badge-active',
+              'arrived': 'badge-arrived',
+              'no_show': 'badge-no_show',
+              'expired': 'badge-expired',
+          };
+          if (mapping[status]) el.classList.add(mapping[status]);
+      }
 
-                                                                                                                                    /* -------------------- Section 11: Booking Status Badge -------------------- */
-                                                                                                                                    function setBookingStatusBadge(status) {
-                                                                                                                                      const el = document.getElementById('booking-status');
-                                                                                                                                      if (!el) return;
-                                                                                                                                      el.className = 'badge';
-                                                                                                                                      el.textContent = status.replace('_', ' ');
-                                                                                                                                      const mapping = {
-                                                                                                                                        'active': 'badge-active',
-                                                                                                                                        'arrived': 'badge-arrived',
-                                                                                                                                        'no_show': 'badge-no_show',
-                                                                                                                                        'expired': 'badge-expired',
-                                                                                                                                      };
-                                                                                                                                      if (mapping[status]) el.classList.add(mapping[status]);
-                                                                                                                                    }
-
-                                                                                                                                    if ("{{ role }}" === "user") {
-                                                                                                                                      fetch('/booking-status/')
-                                                                                                                                        .then(res => res.json())
-                                                                                                                                        .then(data => {
-                                                                                                                                          if (data.has_booking) {
-                                                                                                                                            setBookingStatusBadge(data.status);
-                                                                                                                                            if (document.getElementById('slot-number')) {
-                                                                                                                                              document.getElementById('slot-number').textContent = data.slot_id;
-                                                                                                                                            }
-                                                                                                                                          }
-                                                                                                                                        })
-                                                                                                                                        .catch(err => console.error('Error fetching booking status:', err));
-                                                                                                                                    }
+      if ("{{ role }}" === "user") {
+          fetch('/booking-status/')
+              .then(res => res.json())
+              .then(data => {
+                  if (data.has_booking) {
+                      setBookingStatusBadge(data.status);
+                      if (document.getElementById('slot-number')) {
+                          document.getElementById('slot-number').textContent = data.slot_id;
+                      }
+                  }
+              })
+              .catch(err => console.error('Error fetching booking status:', err));
+      }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -1999,8 +2048,8 @@
 
       function renderDashboard(data) {
         // Update stat cards
-       // New:
-        document.getElementById("stat-arrived").textContent = 
+        // New:
+        document.getElementById("stat-arrived").textContent =
           data.total_arrived;
         document.getElementById("stat-no-show").textContent =
           data.total_no_show;
@@ -2034,11 +2083,11 @@
         legendContainer.innerHTML = vehicleLabels
           .map(
             (label, i) => `
-      <div style="display:flex;align-items:center;margin-bottom:4px;width:50%;">
-        <div style="width:12px;height:12px;background:${vehicleColors[i]};margin-right:6px;"></div>
-        ${label}
-      </div>
-    `
+                <div style="display:flex;align-items:center;margin-bottom:4px;width:50%;">
+                    <div style="width:12px;height:12px;background:${vehicleColors[i]};margin-right:6px;"></div>
+                    ${label}
+                </div>
+                `
           )
           .join("");
 
@@ -2099,6 +2148,7 @@
             options: { responsive: true, maintainAspectRatio: false },
           });
         }
+
         // ===== Revenue Chart =====
         if (document.getElementById("revenueChart")) {
           new Chart(document.getElementById("revenueChart"), {

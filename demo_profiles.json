@@ -1,0 +1,18 @@
+[
+{
+  "model": "parking.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": 4,
+    "role": "admin"
+  }
+},
+{
+  "model": "parking.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": 5,
+    "role": "staff"
+  }
+}
+]

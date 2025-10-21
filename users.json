@@ -1,0 +1,158 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$t9O4Rglazx3KfVEs9EeEPk$xUqOyV4H7OXAm58ztk3jGELMZk8bEASZ8uQZt/F8ztE=",
+    "last_login": "2025-10-02T12:21:11.208Z",
+    "is_superuser": true,
+    "username": "Brian",
+    "first_name": "",
+    "last_name": "",
+    "email": "briannjeru215@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-08-12T14:51:26Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$sSl2CZkJnkvtyxLlUjaQ2T$Pfh73kdwd3BZLDKlB6TMsfTrJT3h730/14601hQp4Wk=",
+    "last_login": "2025-09-23T13:52:57Z",
+    "is_superuser": false,
+    "username": "Bryan",
+    "first_name": "",
+    "last_name": "",
+    "email": "bryanjeru215@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-08-13T10:37:11Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$yO5EnBjhWoiA7zMMIAVRoQ$6090zWQWNf7/ecQLhY08gj4dTbGfICAeELCANnWA5Ww=",
+    "last_login": "2025-08-13T11:07:56.277Z",
+    "is_superuser": false,
+    "username": "Njerubrayo",
+    "first_name": "",
+    "last_name": "",
+    "email": "njeru.brian1@students.jkuat.ac.ke",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-08-13T11:07:55.742Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ZrckntZs2mjbnHXB8dfX9p$94zzgB2TG+XxyOcO9pFP343LJJHgCu9eiboM7sQqpdA=",
+    "last_login": "2025-10-02T14:15:28.466Z",
+    "is_superuser": false,
+    "username": "Benjamin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-17T10:04:41Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$osFAcwhPG51Tw5MXRK4gxz$s1kE2tKBfprqLahVJ9C9tWE+WPRD242VqYECle4i2fc=",
+    "last_login": "2025-09-25T10:10:15.961Z",
+    "is_superuser": false,
+    "username": "Amad",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-17T10:06:54Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$6fayhpOC2XmFYCI1czRXdC$2BMoSrvkdnn2ZevLcqZVosYq8jFHvVM0ew/NKXP6U18=",
+    "last_login": "2025-09-25T10:17:01.953Z",
+    "is_superuser": false,
+    "username": "yobra",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-25T10:16:52.956Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "parking.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": 4,
+    "role": "admin"
+  }
+},
+{
+  "model": "parking.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": 5,
+    "role": "staff"
+  }
+},
+{
+  "model": "parking.userprofile",
+  "pk": 5,
+  "fields": {
+    "user": 1,
+    "role": "user"
+  }
+},
+{
+  "model": "parking.userprofile",
+  "pk": 11,
+  "fields": {
+    "user": 3,
+    "role": "user"
+  }
+},
+{
+  "model": "parking.userprofile",
+  "pk": 12,
+  "fields": {
+    "user": 2,
+    "role": "user"
+  }
+},
+{
+  "model": "parking.userprofile",
+  "pk": 28,
+  "fields": {
+    "user": 16,
+    "role": "staff"
+  }
+}
+]
